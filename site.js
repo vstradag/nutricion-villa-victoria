@@ -4,6 +4,69 @@
   /** Paste your live pilot-calendar URL here after Vercel deploy (optional). */
   const PILOT_CALENDAR_URL = '';
 
+  /**
+   * Gallery: set `src` when a file is ready (path from site root, e.g. assets/comunidad.jpg).
+   * For video, optional `poster` image while loading.
+   */
+  const MEDIA_SLOTS = [
+    {
+      id: 'comunidad',
+      type: 'image',
+      src: '',
+      caption: {
+        es: 'Comunidad y territorio (con permiso para publicar).',
+        en: 'Community and landscape (published with permission).',
+      },
+    },
+    {
+      id: 'app-capturas',
+      type: 'image',
+      src: '',
+      caption: {
+        es: 'Capturas de la app educativa (sin datos personales).',
+        en: 'Screenshots of the educational app (no personal data).',
+      },
+    },
+    {
+      id: 'taller',
+      type: 'image',
+      src: '',
+      caption: {
+        es: 'Taller o actividad de divulgación con el Centro.',
+        en: 'Outreach activity or workshop with the Center.',
+      },
+    },
+    {
+      id: 'alimentos',
+      type: 'image',
+      src: '',
+      caption: {
+        es: 'Alimentos y prácticas locales (ejemplo para los módulos).',
+        en: 'Local foods and practices (example for the modules).',
+      },
+    },
+    {
+      id: 'video-presentacion',
+      type: 'video',
+      src: '',
+      poster: '',
+      caption: {
+        es: 'Video breve: qué es el proyecto (2–3 min).',
+        en: 'Short video: what the project is (2–3 min).',
+      },
+    },
+    {
+      id: 'video-modulo',
+      type: 'video',
+      src: '',
+      poster: '',
+      caption: {
+        es: 'Demostración de un módulo de realidad aumentada.',
+        en: 'Demo of one augmented-reality module.',
+      },
+    },
+  ];
+
   const T = {
     es: {
       brandTitle: 'Nutrición en RA',
@@ -12,6 +75,7 @@
         ['#participar', 'Participar'],
         ['#centro', 'Centro Mazahua'],
         ['#etapa', 'Etapa 1'],
+        ['#galeria', 'Fotos y videos'],
         ['#futuro', 'Seguimiento'],
       ],
       heroEyebrow: 'Ciencia comunitaria · Villa Victoria, Edomex',
@@ -74,6 +138,11 @@
         { name: 'Jeffrey Vadala', role: 'Desarrollo de la app', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
         { name: 'Inhala / Mallinalli', role: 'Articulación local', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
       ],
+      mediaTitle: 'Fotos y videos',
+      mediaIntro: 'Espacios reservados para imágenes y material audiovisual del proyecto. Solo se publicará contenido con consentimiento y sin datos personales.',
+      mediaEmpty: 'Pendiente',
+      mediaPhoto: 'Foto',
+      mediaVideo: 'Video',
       fundTitle: 'Para SECIHTI y quienes evalúen etapas futuras',
       fundBody: `<p><strong>Clave:</strong> DIVULGACION-2025-1352. <strong>Convocatoria:</strong> Divulgación Comunitaria de la Ciencia y las Humanidades 2025.</p>
 <p><strong>Entregables de la etapa 1:</strong> revisión bibliográfica y análisis de vacíos; diagnóstico comunitario (meta de 15 entrevistas); app beta con tres módulos de RA; piloto documentado; materiales preparados para divulgación abierta.</p>
@@ -94,6 +163,7 @@
         ['#participar', 'Take part'],
         ['#centro', 'Mazahua Center'],
         ['#etapa', 'Stage 1'],
+        ['#galeria', 'Photos & videos'],
         ['#futuro', 'Next stages'],
       ],
       heroEyebrow: 'Community science · Villa Victoria, Mexico State',
@@ -156,6 +226,11 @@
         { name: 'Jeffrey Vadala', role: 'App development', text: 'Technical build of the educational mobile application.' },
         { name: 'Inhala / Mallinalli', role: 'Local liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
       ],
+      mediaTitle: 'Photos and videos',
+      mediaIntro: 'Reserved slots for project images and clips. Only material with consent and no personal data will be published.',
+      mediaEmpty: 'Coming soon',
+      mediaPhoto: 'Photo',
+      mediaVideo: 'Video',
       fundTitle: 'For SECIHTI and future funding reviewers',
       fundBody: `<p><strong>ID:</strong> DIVULGACION-2025-1352. <strong>Call:</strong> Community Outreach for Science and Humanities 2025.</p>
 <p><strong>Stage 1 outputs:</strong> literature review and gap analysis; community assessment (goal of 15 interviews); beta app with three AR modules; documented pilot; materials prepared for open outreach.</p>
@@ -177,6 +252,9 @@
   const $ = (s) => document.querySelector(s);
   const L = () => lang;
   const t = (k) => T[L()][k];
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  }[c]));
 
   const detectLang = () => {
     try {
@@ -239,6 +317,32 @@
       </article>`).join('');
   };
 
+  const renderMedia = () => {
+    const host = $('#media-grid');
+    if (!host) return;
+    host.innerHTML = MEDIA_SLOTS.map((slot) => {
+      const cap = slot.caption[L()];
+      const typeLabel = slot.type === 'video' ? t('mediaVideo') : t('mediaPhoto');
+      const hasSrc = Boolean(slot.src && String(slot.src).trim());
+      let frame = '';
+      if (hasSrc && slot.type === 'image') {
+        frame = `<img class="media-fill" src="${esc(slot.src)}" alt="${esc(cap)}" loading="lazy" width="800" height="500">`;
+      } else if (hasSrc && slot.type === 'video') {
+        const poster = slot.poster ? ` poster="${esc(slot.poster)}"` : '';
+        frame = `<video class="media-fill" controls preload="metadata"${poster}><source src="${esc(slot.src)}"></video>`;
+      } else {
+        frame = `<div class="media-placeholder" aria-hidden="true">
+          <span class="media-kind">${esc(typeLabel)}</span>
+          <span class="media-pending">${esc(t('mediaEmpty'))}</span>
+        </div>`;
+      }
+      return `<figure class="media-slot is-${slot.type}${hasSrc ? ' is-filled' : ' is-empty'}" data-slot="${esc(slot.id)}">
+        <div class="media-frame">${frame}</div>
+        <figcaption><span class="media-cap">${esc(cap)}</span></figcaption>
+      </figure>`;
+    }).join('');
+  };
+
   const renderLinks = () => {
     $('#link-cards').innerHTML = T[L()].links.map((lnk) => {
       const disabled = lnk.needsUrl && !lnk.href;
@@ -261,6 +365,7 @@
     renderAudiences();
     renderTimeline();
     renderTeam();
+    renderMedia();
     renderLinks();
   };
 
