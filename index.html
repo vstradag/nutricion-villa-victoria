@@ -58,88 +58,150 @@
       </div>
     </section>
 
-    <section class="section wrap snapshot" id="resumen">
-      <dl class="hero-facts reveal-up">
-        <div><dt data-t="factWhereLbl"></dt><dd data-t="factWhere"></dd></div>
-        <div><dt data-t="factProgramLbl"></dt><dd data-t="factProgram"></dd></div>
-        <div><dt data-t="factStageLbl"></dt><dd data-t="factStage"></dd></div>
-      </dl>
-      <aside class="hero-aside reveal-up" aria-label="Project summary">
-        <p class="aside-label" data-t="asideLabel"></p>
-        <ul class="module-list" id="modules"></ul>
-      </aside>
-    </section>
-
-    <section class="section wrap" id="que-es">
-      <h2 data-t="whatTitle"></h2>
-      <div class="prose two-col" data-t-html="whatBody"></div>
-    </section>
-
-    <section class="section wrap alt" id="audiences">
-      <h2 data-t="audTitle"></h2>
-      <p class="section-intro" data-t="audIntro"></p>
-      <div class="cards" id="audience-cards"></div>
-    </section>
-
-    <section class="section wrap" id="participar">
-      <h2 data-t="partTitle"></h2>
-      <div class="split">
-        <article class="panel">
-          <h3 data-t="partAdultsTitle"></h3>
-          <div class="prose" data-t-html="partAdults"></div>
-        </article>
-        <article class="panel accent">
-          <h3 data-t="partKidsTitle"></h3>
-          <div class="prose" data-t-html="partKids"></div>
-        </article>
+    <!-- Dark band continues straight out of the hero -->
+    <section class="section section--dark snapshot" id="resumen">
+      <div class="wrap snapshot__grid">
+        <dl class="facts reveal-up" data-stagger>
+          <div><dt data-t="factWhereLbl"></dt><dd data-t="factWhere"></dd></div>
+          <div><dt data-t="factProgramLbl"></dt><dd data-t="factProgram"></dd></div>
+          <div><dt data-t="factStageLbl"></dt><dd data-t="factStage"></dd></div>
+        </dl>
+        <div class="modules reveal-up" aria-label="Project summary">
+          <p class="sec-eyebrow"><span class="sec-line"></span><span data-t="asideLabel"></span></p>
+          <ol class="module-list" id="modules" data-stagger></ol>
+        </div>
       </div>
-      <aside class="callout" data-t-html="partRights"></aside>
     </section>
 
-    <section class="section wrap alt" id="centro">
-      <h2 data-t="centerTitle"></h2>
-      <div class="prose" data-t-html="centerBody"></div>
+    <section class="section" id="que-es">
+      <div class="wrap sec-grid">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">01</span><span class="sec-line"></span><span data-t="eyWhat"></span></p>
+          <h2 data-t="whatTitle"></h2>
+        </div>
+        <div class="prose prose--lg" data-t-html="whatBody"></div>
+      </div>
     </section>
 
-    <section class="section wrap" id="etapa">
-      <h2 data-t="stageTitle"></h2>
-      <div class="prose" data-t-html="stageBody"></div>
-      <ol class="timeline" id="timeline"></ol>
+    <section class="section section--sand" id="audiences">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">02</span><span class="sec-line"></span><span data-t="eyAud"></span></p>
+          <h2 data-t="audTitle"></h2>
+          <p class="section-intro" data-t="audIntro"></p>
+        </div>
+        <div class="cards" id="audience-cards" data-stagger></div>
+      </div>
     </section>
 
-    <section class="section wrap alt" id="ciencia">
-      <h2 data-t="sciTitle"></h2>
-      <div class="prose" data-t-html="sciBody"></div>
+    <section class="section" id="participar">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">03</span><span class="sec-line"></span><span data-t="eyPart"></span></p>
+          <h2 data-t="partTitle"></h2>
+        </div>
+        <div class="split" data-stagger>
+          <article class="panel">
+            <h3 data-t="partAdultsTitle"></h3>
+            <div class="prose" data-t-html="partAdults"></div>
+          </article>
+          <article class="panel accent">
+            <h3 data-t="partKidsTitle"></h3>
+            <div class="prose" data-t-html="partKids"></div>
+          </article>
+        </div>
+        <aside class="callout reveal-up" data-t-html="partRights"></aside>
+      </div>
     </section>
 
-    <section class="section wrap" id="equipo">
-      <h2 data-t="teamTitle"></h2>
-      <p class="section-intro" data-t="teamIntro"></p>
-      <div class="team" id="team"></div>
+    <section class="section section--dark section--photo" id="centro">
+      <div class="section__bg" style="background-image:url('assets/band-centro.jpg')" aria-hidden="true"></div>
+      <div class="wrap sec-grid">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">04</span><span class="sec-line"></span><span data-t="eyCenter"></span></p>
+          <h2 data-t="centerTitle"></h2>
+        </div>
+        <div class="prose prose--lg" data-t-html="centerBody"></div>
+      </div>
     </section>
 
-    <section class="section wrap" id="galeria">
-      <h2 data-t="mediaTitle"></h2>
-      <p class="section-intro" data-t="mediaIntro"></p>
-      <div class="media-grid" id="media-grid"></div>
+    <section class="section" id="etapa">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">05</span><span class="sec-line"></span><span data-t="eyStage"></span></p>
+          <h2 data-t="stageTitle"></h2>
+          <div class="section-intro prose" data-t-html="stageBody"></div>
+        </div>
+        <ol class="timeline" id="timeline" data-stagger></ol>
+      </div>
     </section>
 
-    <section class="section wrap alt" id="futuro">
-      <h2 data-t="fundTitle"></h2>
-      <div class="prose" data-t-html="fundBody"></div>
+    <section class="section section--sand" id="ciencia">
+      <div class="wrap sec-grid">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">06</span><span class="sec-line"></span><span data-t="eySci"></span></p>
+          <h2 data-t="sciTitle"></h2>
+        </div>
+        <div class="prose prose--lg" data-t-html="sciBody"></div>
+      </div>
     </section>
 
-    <section class="section wrap cta-block" id="enlaces">
-      <h2 data-t="linksTitle"></h2>
-      <p class="section-intro" data-t="linksIntro"></p>
-      <div class="link-cards" id="link-cards"></div>
+    <section class="section" id="equipo">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">07</span><span class="sec-line"></span><span data-t="eyTeam"></span></p>
+          <h2 data-t="teamTitle"></h2>
+          <p class="section-intro" data-t="teamIntro"></p>
+        </div>
+        <div class="team" id="team" data-stagger></div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="galeria">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">08</span><span class="sec-line"></span><span data-t="eyMedia"></span></p>
+          <h2 data-t="mediaTitle"></h2>
+          <p class="section-intro" data-t="mediaIntro"></p>
+        </div>
+        <div class="media-grid" id="media-grid" data-stagger></div>
+      </div>
+    </section>
+
+    <section class="section" id="futuro">
+      <div class="wrap sec-grid">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">09</span><span class="sec-line"></span><span data-t="eyFund"></span></p>
+          <h2 data-t="fundTitle"></h2>
+        </div>
+        <div class="prose prose--lg" data-t-html="fundBody"></div>
+      </div>
+    </section>
+
+    <section class="section section--sand" id="enlaces">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="sec-eyebrow"><span class="sec-num">10</span><span class="sec-line"></span><span data-t="eyLinks"></span></p>
+          <h2 data-t="linksTitle"></h2>
+          <p class="section-intro" data-t="linksIntro"></p>
+        </div>
+        <div class="link-cards" id="link-cards" data-stagger></div>
+      </div>
     </section>
   </main>
 
   <footer class="site-foot">
+    <div class="section__bg section__bg--foot" style="background-image:url('assets/band-foot.jpg')" aria-hidden="true"></div>
     <div class="wrap foot-grid">
-      <p data-t-html="footLegal"></p>
-      <p class="foot-muted" data-t="footNote"></p>
+      <p class="foot-mark reveal-up">Villa Victoria<span class="accent">.</span></p>
+      <div class="foot-meta">
+        <p data-t-html="footLegal"></p>
+        <p class="foot-muted" data-t="footNote"></p>
+      </div>
+      <div class="foot-row">
+        <span>DIVULGACION-2025-1352 · SECIHTI 2025</span>
+        <a href="#top" data-t="backTop"></a>
+      </div>
     </div>
   </footer>
 

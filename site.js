@@ -91,6 +91,17 @@
       factStageLbl: 'Etapa en curso',
       factStage: 'Etapa 1: jul 2026 – jun 2027',
       asideLabel: 'Tres módulos en la app',
+      eyWhat: 'El proyecto',
+      eyAud: 'Para quién',
+      eyPart: 'Participación voluntaria',
+      eyCenter: 'Comunidad',
+      eyStage: 'Calendario',
+      eySci: 'Método',
+      eyTeam: 'Equipo',
+      eyMedia: 'Galería',
+      eyFund: 'Seguimiento',
+      eyLinks: 'Recursos',
+      backTop: 'Volver arriba',
       modules: [
         { t: 'Alimentación diaria', d: 'Maíz, frijol, verduras y hábitos del hogar con explicaciones visuales.' },
         { t: 'Glucosa y energía', d: 'Cómo los alimentos afectan la energía del cuerpo, en lenguaje sencillo.' },
@@ -103,10 +114,10 @@
       audTitle: 'Información según quién consulta',
       audIntro: 'Esta página es pública. Resume el propósito del proyecto sin datos personales de participantes.',
       audiences: [
-        { accent: '#2f4b8f', title: 'Público general', text: 'Conoce qué hacemos, por qué en Villa Victoria y cómo se respetan las decisiones de la comunidad.' },
-        { accent: '#1d7d72', title: 'Personas interesadas en participar', text: 'Entrevistas y uso de la app son voluntarios. Puede saltarse cualquier pregunta o dejar de participar.' },
-        { accent: '#c4841a', title: 'Centro Mazahua', text: 'Pedimos revisión de volantes y difusión. Devolvemos un resumen útil y reconocemos a la comunidad en los materiales.' },
-        { accent: '#3b3a42', title: 'SECIHTI y posibles financiadores', text: 'Etapa 1 con productos verificables: diagnóstico comunitario, app beta y materiales para ampliar etapas futuras.' },
+        { accent: '#c4841a', title: 'Público general', text: 'Conoce qué hacemos, por qué en Villa Victoria y cómo se respetan las decisiones de la comunidad.' },
+        { accent: '#a4502f', title: 'Personas interesadas en participar', text: 'Entrevistas y uso de la app son voluntarios. Puede saltarse cualquier pregunta o dejar de participar.' },
+        { accent: '#6b7a3a', title: 'Centro Mazahua', text: 'Pedimos revisión de volantes y difusión. Devolvemos un resumen útil y reconocemos a la comunidad en los materiales.' },
+        { accent: '#1f1b16', title: 'SECIHTI y posibles financiadores', text: 'Etapa 1 con productos verificables: diagnóstico comunitario, app beta y materiales para ampliar etapas futuras.' },
       ],
       partTitle: 'Cómo participar',
       partAdultsTitle: 'Conversaciones con adultos',
@@ -135,9 +146,9 @@
       teamTitle: 'Quién trabaja en el proyecto',
       teamIntro: 'Roles principales en la etapa 1. La lista puede ampliarse con colaboradores locales.',
       team: [
-        { name: 'Dr. Vicente Estrada González', role: 'Responsable técnico', text: 'Diseño científico, entrevistas comunitarias y coordinación general.' },
-        { name: 'Jeffrey Vadala', role: 'Desarrollo de la app', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
-        { name: 'Inhala / Mallinalli', role: 'Articulación local', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Responsable técnico', text: 'Diseño científico, entrevistas comunitarias y coordinación general.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', role: 'Desarrollo de la app', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Articulación local', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
       ],
       mediaTitle: 'Fotos y videos',
       mediaIntro: 'Espacios reservados para imágenes y material audiovisual del proyecto. Solo se publicará contenido con consentimiento y sin datos personales.',
@@ -180,6 +191,17 @@
       factStageLbl: 'Current stage',
       factStage: 'Stage 1: Jul 2026 – Jun 2027',
       asideLabel: 'Three modules in the app',
+      eyWhat: 'The project',
+      eyAud: 'Who this is for',
+      eyPart: 'Voluntary participation',
+      eyCenter: 'Community',
+      eyStage: 'Timeline',
+      eySci: 'Method',
+      eyTeam: 'Team',
+      eyMedia: 'Gallery',
+      eyFund: 'Next stages',
+      eyLinks: 'Resources',
+      backTop: 'Back to top',
       modules: [
         { t: 'Everyday food', d: 'Corn, beans, vegetables and home habits with visual explanations.' },
         { t: 'Glucose and energy', d: 'How food affects body energy, in plain language.' },
@@ -192,10 +214,10 @@
       audTitle: 'Information by audience',
       audIntro: 'This page is public. It summarises the purpose of the project without participants’ personal data.',
       audiences: [
-        { accent: '#2f4b8f', title: 'General public', text: 'Learn what we do, why Villa Victoria, and how community decisions are respected.' },
-        { accent: '#1d7d72', title: 'Potential participants', text: 'Interviews and app use are voluntary. You may skip any question or stop at any time.' },
-        { accent: '#c4841a', title: 'Mazahua Center', text: 'We ask for review of flyers and outreach. We return a useful summary and credit the community in materials.' },
-        { accent: '#3b3a42', title: 'SECIHTI & future funders', text: 'Stage 1 with verifiable outputs: community assessment, beta app, and materials to scale later stages.' },
+        { accent: '#c4841a', title: 'General public', text: 'Learn what we do, why Villa Victoria, and how community decisions are respected.' },
+        { accent: '#a4502f', title: 'Potential participants', text: 'Interviews and app use are voluntary. You may skip any question or stop at any time.' },
+        { accent: '#6b7a3a', title: 'Mazahua Center', text: 'We ask for review of flyers and outreach. We return a useful summary and credit the community in materials.' },
+        { accent: '#1f1b16', title: 'SECIHTI & future funders', text: 'Stage 1 with verifiable outputs: community assessment, beta app, and materials to scale later stages.' },
       ],
       partTitle: 'How to take part',
       partAdultsTitle: 'Conversations with adults',
@@ -224,9 +246,9 @@
       teamTitle: 'Project team',
       teamIntro: 'Core roles in stage 1. Local collaborators may be added.',
       team: [
-        { name: 'Dr. Vicente Estrada González', role: 'Principal investigator', text: 'Scientific design, community interviews and overall coordination.' },
-        { name: 'Jeffrey Vadala', role: 'App development', text: 'Technical build of the educational mobile application.' },
-        { name: 'Inhala / Mallinalli', role: 'Local liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Principal investigator', text: 'Scientific design, community interviews and overall coordination.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', role: 'App development', text: 'Technical build of the educational mobile application.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Local liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
       ],
       mediaTitle: 'Photos and videos',
       mediaIntro: 'Reserved slots for project images and clips. Only material with consent and no personal data will be published.',
@@ -293,8 +315,8 @@
   };
 
   const renderModules = () => {
-    $('#modules').innerHTML = T[L()].modules.map((m) =>
-      `<li><strong>${m.t}</strong>${m.d}</li>`).join('');
+    $('#modules').innerHTML = T[L()].modules.map((m, i) =>
+      `<li><span class="module-num">${String(i + 1).padStart(2, '0')}</span><strong>${m.t}</strong><span>${m.d}</span></li>`).join('');
   };
 
   const renderAudiences = () => {
@@ -313,6 +335,7 @@
   const renderTeam = () => {
     $('#team').innerHTML = T[L()].team.map((p) => `
       <article>
+        <div class="avatar" aria-hidden="true">${esc(p.initials || '')}</div>
         <h3>${p.name}</h3>
         <p class="role">${p.role}</p>
         <p>${p.text}</p>
@@ -466,6 +489,32 @@
       gsap.fromTo(h, { y: 24, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
         scrollTrigger: { trigger: h, start: 'top 90%', once: true },
+      });
+    });
+
+    // Section eyebrows: the hairline draws in like the preloader bar.
+    gsap.utils.toArray('.sec-eyebrow').forEach((eb) => {
+      const line = eb.querySelector('.sec-line');
+      const tl = gsap.timeline({ scrollTrigger: { trigger: eb, start: 'top 92%', once: true } });
+      tl.fromTo(eb, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 0);
+      if (line) tl.fromTo(line, { scaleX: 0 }, { scaleX: 1, duration: 1, ease: 'power3.out' }, 0.1);
+    });
+
+    // Lists and grids: children arrive one after another, same curve as the hero words.
+    gsap.utils.toArray('[data-stagger]').forEach((box) => {
+      const items = Array.from(box.children);
+      if (!items.length) return;
+      gsap.fromTo(items, { y: 28, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.85, ease: 'power3.out', stagger: 0.09,
+        scrollTrigger: { trigger: box, start: 'top 86%', once: true },
+      });
+    });
+
+    // Photo bands: the still drifts slowly, like the hero video pushing in.
+    gsap.utils.toArray('.section__bg').forEach((bg) => {
+      gsap.fromTo(bg, { yPercent: -8 }, {
+        yPercent: 8, ease: 'none',
+        scrollTrigger: { trigger: bg.parentElement, start: 'top bottom', end: 'bottom top', scrub: true },
       });
     });
 
