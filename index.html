@@ -10,8 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header class="site-head" id="top">
+<body class="is-loading">
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__logo"><span class="preloader__kicker">DIVULGACION-2025-1352</span><span class="preloader__name">Villa Victoria<span class="accent">.</span></span></div>
+      <div class="preloader__bar-wrap"><div class="preloader__bar" id="preloaderBar"></div></div>
+      <div class="preloader__counter"><span class="preloader__pct" id="preloaderPct">0</span><span class="preloader__pct-sign">%</span></div>
+    </div>
+  </div>
+
+  <header class="site-head is-over-hero" id="top">
     <div class="wrap head-row">
       <a class="brand" href="#top">
         <span class="brand-kicker">DIVULGACION-2025-1352</span>
@@ -28,22 +36,35 @@
   </header>
 
   <main>
-    <section class="hero wrap">
-      <div class="hero-copy">
-        <p class="eyebrow" data-t="heroEyebrow"></p>
-        <h1 data-t="heroH1"></h1>
-        <p class="lede" data-t="heroLede"></p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#participar" data-t="ctaParticipate"></a>
-          <a class="btn" href="#centro" data-t="ctaCenter"></a>
+    <section class="hero" id="hero">
+      <div class="hero__pin">
+        <video class="hero__video" id="heroVideo" muted playsinline autoplay loop preload="auto" poster="assets/hero-poster.jpg">
+          <source src="assets/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay"></div>
+        <div class="hero__content wrap">
+          <p class="eyebrow hero__tag" data-t="heroEyebrow"></p>
+          <h1 class="hero__heading" id="heroHeading" data-t="heroH1"></h1>
+          <p class="lede hero__sub" data-t="heroLede"></p>
+          <div class="hero-cta hero__cta">
+            <a class="btn primary" href="#participar" data-t="ctaParticipate"></a>
+            <a class="btn ghost" href="#centro" data-t="ctaCenter"></a>
+          </div>
         </div>
-        <dl class="hero-facts">
-          <div><dt data-t="factWhereLbl"></dt><dd data-t="factWhere"></dd></div>
-          <div><dt data-t="factProgramLbl"></dt><dd data-t="factProgram"></dd></div>
-          <div><dt data-t="factStageLbl"></dt><dd data-t="factStage"></dd></div>
-        </dl>
+        <div class="hero__scroll-indicator">
+          <span data-t="scrollHint"></span>
+          <div class="hero__scroll-line"></div>
+        </div>
       </div>
-      <aside class="hero-aside" aria-label="Project summary">
+    </section>
+
+    <section class="section wrap snapshot" id="resumen">
+      <dl class="hero-facts reveal-up">
+        <div><dt data-t="factWhereLbl"></dt><dd data-t="factWhere"></dd></div>
+        <div><dt data-t="factProgramLbl"></dt><dd data-t="factProgram"></dd></div>
+        <div><dt data-t="factStageLbl"></dt><dd data-t="factStage"></dd></div>
+      </dl>
+      <aside class="hero-aside reveal-up" aria-label="Project summary">
         <p class="aside-label" data-t="asideLabel"></p>
         <ul class="module-list" id="modules"></ul>
       </aside>
@@ -122,6 +143,9 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="site.js"></script>
 </body>
 </html>

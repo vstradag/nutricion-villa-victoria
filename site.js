@@ -83,6 +83,7 @@
       heroLede: 'Una app educativa en realidad aumentada y conversaciones voluntarias con personas de la zona mazahua ayudan a explicar —con alimentos y prácticas locales— cómo la nutrición cotidiana se relaciona con la salud. No es un servicio médico ni un diagnóstico.',
       ctaParticipate: 'Cómo participar',
       ctaCenter: 'Para el Centro Mazahua',
+      scrollHint: 'Desliza',
       factWhereLbl: 'Dónde',
       factWhere: 'Villa Victoria y comunidades vinculadas al centro mazahua de la región',
       factProgramLbl: 'Financiamiento',
@@ -171,6 +172,7 @@
       heroLede: 'An educational augmented-reality app and voluntary conversations with people in the Mazahua area help explain —using local foods and practices— how everyday nutrition relates to health. This is not medical care or a diagnosis.',
       ctaParticipate: 'How to participate',
       ctaCenter: 'For the Mazahua Center',
+      scrollHint: 'Scroll',
       factWhereLbl: 'Where',
       factWhere: 'Villa Victoria and communities linked to the regional Mazahua center',
       factProgramLbl: 'Funder',
@@ -369,13 +371,198 @@
     renderLinks();
   };
 
+  /* ---------- motion (preloader + cinematic hero) ---------- */
+  const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Wrap each word of the heading so it can be staggered in. Re-run after a language switch.
+  function splitWords(el) {
+    if (!el) return [];
+    const text = el.textContent.trim();
+    el.innerHTML = text.split(/\s+/).map((w) => `<span class="word">${esc(w)}</span>`).join(' ');
+    return Array.from(el.querySelectorAll('.word'));
+  }
+
+  function revealHero(immediate) {
+    const heading = $('#heroHeading');
+    const words = splitWords(heading);
+    if (!hasGsap || reduceMotion || immediate) {
+      words.forEach((w) => { w.style.opacity = '1'; });
+      ['.hero__tag', '.hero__sub', '.hero__cta', '.hero__scroll-indicator'].forEach((s) => {
+        const el = document.querySelector(s);
+        if (el) el.style.opacity = '1';
+      });
+      return;
+    }
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.fromTo('.hero__tag', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.25)
+      .fromTo(words, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.05 }, 0.45)
+      .fromTo('.hero__sub', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 1.0)
+      .fromTo('.hero__cta', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 1.2)
+      .fromTo('.hero__scroll-indicator', { opacity: 0 }, { opacity: 1, duration: 1 }, 1.6);
+  }
+
+  function initHeroScroll() {
+    if (!hasGsap || reduceMotion) return;
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    ScrollTrigger.create({
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: '.hero__pin',
+      pinSpacing: false,
+    });
+
+    // The video slowly pushes in and the overlay deepens as the hero scrolls away.
+    gsap.to('.hero__video', {
+      scale: 1.12,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom bottom', scrub: true },
+    });
+
+    gsap.fromTo('.hero__overlay',
+      { opacity: 1 },
+      {
+        opacity: 1,
+        background: 'linear-gradient(to bottom, rgba(20,17,13,0.78) 0%, rgba(20,17,13,0.62) 40%, rgba(20,17,13,0.62) 60%, rgba(20,17,13,0.96) 100%)',
+        ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: '60% bottom', scrub: true },
+      });
+
+    gsap.to('.hero__content', {
+      y: -120,
+      opacity: 0,
+      scale: 0.94,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: '5% top', end: '35% top', scrub: true },
+    });
+
+    gsap.to('.hero__scroll-indicator', {
+      opacity: 0,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: '2% top', end: '10% top', scrub: true },
+    });
+
+    // Header: transparent over the hero, solid afterwards.
+    const head = $('.site-head');
+    ScrollTrigger.create({
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom 80px',
+      onLeave: () => head.classList.remove('is-over-hero'),
+      onEnterBack: () => head.classList.add('is-over-hero'),
+    });
+
+    // Sections ease in as they arrive.
+    gsap.utils.toArray('.reveal-up').forEach((el, i) => {
+      gsap.fromTo(el, { y: 36, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', delay: (i % 2) * 0.12,
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+
+    gsap.utils.toArray('main .section h2').forEach((h) => {
+      gsap.fromTo(h, { y: 24, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: h, start: 'top 90%', once: true },
+      });
+    });
+
+    // Smooth in-page navigation, offset for the fixed header.
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        gsap.to(window, { scrollTo: { y: target, offsetY: id === '#top' ? 0 : 72 }, duration: 1.1, ease: 'power3.inOut' });
+      });
+    });
+  }
+
+  function initPreloader(onComplete) {
+    const pre = $('#preloader');
+    const bar = $('#preloaderBar');
+    const pct = $('#preloaderPct');
+    if (!pre || !hasGsap || reduceMotion) {
+      document.body.classList.remove('is-loading');
+      if (pre) pre.remove();
+      onComplete();
+      return;
+    }
+
+    let loaded = 0;
+    let total = 0;
+    let shown = 0;
+    let target = 0;
+    let raf = null;
+    const mark = () => { loaded = Math.min(loaded + 1, total); target = Math.round((loaded / total) * 100); };
+
+    const video = $('#heroVideo');
+    if (video) {
+      total++;
+      if (video.readyState >= 3) mark();
+      else {
+        video.addEventListener('canplay', mark, { once: true });
+        setTimeout(() => { if (loaded < total) mark(); }, 6000);
+      }
+    }
+    if (document.fonts && document.fonts.ready) { total++; document.fonts.ready.then(mark); }
+    const poster = new Image();
+    total++;
+    poster.onload = mark; poster.onerror = mark;
+    poster.src = 'assets/hero-poster.jpg';
+    if (total === 0) { total = 1; mark(); }
+
+    const minShow = 900;
+    const started = performance.now();
+    const maxWait = setTimeout(() => { loaded = total; target = 100; }, 9000);
+
+    function tick() {
+      shown += (target - shown) * 0.14;
+      const r = Math.round(shown);
+      pct.textContent = String(r);
+      bar.style.width = `${r}%`;
+      if (r >= 100 && target >= 100 && performance.now() - started > minShow) {
+        cancelAnimationFrame(raf);
+        pct.textContent = '100';
+        bar.style.width = '100%';
+        setTimeout(reveal, 350);
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+
+    function reveal() {
+      clearTimeout(maxWait);
+      document.body.classList.remove('is-loading');
+      if (video) video.play().catch(() => {});
+      gsap.timeline({ onComplete: () => { pre.remove(); onComplete(); } })
+        .to('.preloader__counter', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.in' }, 0)
+        .to('.preloader__bar-wrap', { scaleX: 0, opacity: 0, duration: 0.4, ease: 'power2.in' }, 0.1)
+        .to('.preloader__logo', { y: -20, opacity: 0, duration: 0.4, ease: 'power2.in' }, 0.15)
+        .to(pre, { yPercent: -100, duration: 0.85, ease: 'power3.inOut' }, 0.4)
+        .add(() => revealHero(false), 0.75);
+    }
+  }
+
   document.querySelectorAll('[data-lang]').forEach((btn) => {
     btn.addEventListener('click', () => {
       lang = btn.dataset.lang;
       try { localStorage.setItem(STORE_LANG, lang); } catch (e) { /* ignore */ }
       renderAll();
+      // The heading was re-rendered as plain text; show it without replaying the intro.
+      revealHero(true);
     });
   });
 
   renderAll();
+  initPreloader(() => {
+    initHeroScroll();
+    if (hasGsap && !reduceMotion) ScrollTrigger.refresh();
+  });
+  if (!hasGsap || reduceMotion) revealHero(true);
 })();
