@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proyecto SECIHTI DIVULGACION-2025-1352: educación nutricional en realidad aumentada con la comunidad de Villa Victoria.">
+  <title>Nutrición en realidad aumentada · Villa Victoria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-head" id="top">
+    <div class="wrap head-row">
+      <a class="brand" href="#top">
+        <span class="brand-kicker">DIVULGACION-2025-1352</span>
+        <span class="brand-title" data-t="brandTitle"></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main"></nav>
+      <div class="head-actions">
+        <div class="seg lang" role="group" aria-label="Language">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow" data-t="heroEyebrow"></p>
+        <h1 data-t="heroH1"></h1>
+        <p class="lede" data-t="heroLede"></p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#participar" data-t="ctaParticipate"></a>
+          <a class="btn" href="#centro" data-t="ctaCenter"></a>
+        </div>
+        <dl class="hero-facts">
+          <div><dt data-t="factWhereLbl"></dt><dd data-t="factWhere"></dd></div>
+          <div><dt data-t="factProgramLbl"></dt><dd data-t="factProgram"></dd></div>
+          <div><dt data-t="factStageLbl"></dt><dd data-t="factStage"></dd></div>
+        </dl>
+      </div>
+      <aside class="hero-aside" aria-label="Project summary">
+        <p class="aside-label" data-t="asideLabel"></p>
+        <ul class="module-list" id="modules"></ul>
+      </aside>
+    </section>
+
+    <section class="section wrap" id="que-es">
+      <h2 data-t="whatTitle"></h2>
+      <div class="prose two-col" data-t-html="whatBody"></div>
+    </section>
+
+    <section class="section wrap alt" id="audiences">
+      <h2 data-t="audTitle"></h2>
+      <p class="section-intro" data-t="audIntro"></p>
+      <div class="cards" id="audience-cards"></div>
+    </section>
+
+    <section class="section wrap" id="participar">
+      <h2 data-t="partTitle"></h2>
+      <div class="split">
+        <article class="panel">
+          <h3 data-t="partAdultsTitle"></h3>
+          <div class="prose" data-t-html="partAdults"></div>
+        </article>
+        <article class="panel accent">
+          <h3 data-t="partKidsTitle"></h3>
+          <div class="prose" data-t-html="partKids"></div>
+        </article>
+      </div>
+      <aside class="callout" data-t-html="partRights"></aside>
+    </section>
+
+    <section class="section wrap alt" id="centro">
+      <h2 data-t="centerTitle"></h2>
+      <div class="prose" data-t-html="centerBody"></div>
+    </section>
+
+    <section class="section wrap" id="etapa">
+      <h2 data-t="stageTitle"></h2>
+      <div class="prose" data-t-html="stageBody"></div>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <section class="section wrap alt" id="ciencia">
+      <h2 data-t="sciTitle"></h2>
+      <div class="prose" data-t-html="sciBody"></div>
+    </section>
+
+    <section class="section wrap" id="equipo">
+      <h2 data-t="teamTitle"></h2>
+      <p class="section-intro" data-t="teamIntro"></p>
+      <div class="team" id="team"></div>
+    </section>
+
+    <section class="section wrap alt" id="futuro">
+      <h2 data-t="fundTitle"></h2>
+      <div class="prose" data-t-html="fundBody"></div>
+    </section>
+
+    <section class="section wrap cta-block" id="enlaces">
+      <h2 data-t="linksTitle"></h2>
+      <p class="section-intro" data-t="linksIntro"></p>
+      <div class="link-cards" id="link-cards"></div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-grid">
+      <p data-t-html="footLegal"></p>
+      <p class="foot-muted" data-t="footNote"></p>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>
