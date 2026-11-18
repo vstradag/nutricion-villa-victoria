@@ -16,6 +16,7 @@
       caption: {
         es: 'Comunidad y territorio (con permiso para publicar).',
         en: 'Community and landscape (published with permission).',
+        de: 'Gemeinschaft und Landschaft (mit Veröffentlichungserlaubnis).',
       },
     },
     {
@@ -25,6 +26,7 @@
       caption: {
         es: 'Capturas de la app educativa (sin datos personales).',
         en: 'Screenshots of the educational app (no personal data).',
+        de: 'Screenshots der Bildungs-App (ohne personenbezogene Daten).',
       },
     },
     {
@@ -34,6 +36,7 @@
       caption: {
         es: 'Taller o actividad de divulgación con el Centro.',
         en: 'Outreach activity or workshop with the Center.',
+        de: 'Workshop oder Vermittlungsaktivität mit dem Zentrum.',
       },
     },
     {
@@ -43,6 +46,7 @@
       caption: {
         es: 'Alimentos y prácticas locales (ejemplo para los módulos).',
         en: 'Local foods and practices (example for the modules).',
+        de: 'Lokale Lebensmittel und Praktiken (Beispiel für die Module).',
       },
     },
     {
@@ -53,6 +57,7 @@
       caption: {
         es: 'Video breve: qué es el proyecto (2–3 min).',
         en: 'Short video: what the project is (2–3 min).',
+        de: 'Kurzes Video: Worum geht es in dem Projekt? (2–3 Min.).',
       },
     },
     {
@@ -63,6 +68,7 @@
       caption: {
         es: 'Demostración de un módulo de realidad aumentada.',
         en: 'Demo of one augmented-reality module.',
+        de: 'Demonstration eines Augmented-Reality-Moduls.',
       },
     },
   ];
@@ -90,7 +96,7 @@
       factProgramLbl: 'Financiamiento',
       factProgram: 'SECIHTI · Divulgación Comunitaria 2025 (Pp F003 / F027)',
       factStageLbl: 'Etapa en curso',
-      factStage: 'Etapa 1: jul 2026 – jun 2027',
+      factStage: 'Etapa 1: jul. 2026 – jun. 2027',
       asideLabel: 'Tres módulos en la app',
       eyWhat: 'El proyecto',
       eyAud: 'Para quién',
@@ -143,7 +149,7 @@
       ],
       sciTitle: 'Base científica y ética',
       sciBody: `<p>Los guiones parten de literatura sobre nutrición, diabetes tipo 2, alimentación mazahua y educación digital. Lo que no se confirme en comunidad se presenta de forma genérica o se omite.</p>
-<p>Principios: consentimiento, reciprocidad con el centro, materiales bilingües cuando sea posible, y evaluación formativa (antes/después) de los módulos sin fines clínicos.</p>`,
+<p>Principios: consentimiento, reciprocidad con el centro, materiales multilingües cuando sea posible, y evaluación formativa (antes/después) de los módulos sin fines clínicos.</p>`,
       teamTitle: 'Quién trabaja en el proyecto',
       teamIntro: 'Roles principales en la etapa 1. La lista puede ampliarse con colaboradores locales.',
       team: [
@@ -164,74 +170,75 @@
       linksIntro: 'Recursos públicos relacionados con el proyecto.',
       links: [
         { href: 'https://www.conahcyt.mx/secihti', title: 'SECIHTI', text: 'Secretaría Ejecutiva del Sistema Nacional de Investigación e Innovación.', external: true },
-        { href: PILOT_CALENDAR_URL, title: 'Calendario del piloto (equipo)', text: 'Herramienta interna para coordinar fechas entre investigadorxs y colaboradores.', external: true, needsUrl: true },
+        { href: PILOT_CALENDAR_URL, title: 'Calendario del piloto (equipo)', text: 'Herramienta interna para coordinar fechas entre investigadoras, investigadores y colaboradores.', external: true, needsUrl: true },
       ],
       footLegal: 'Financiado por la <strong>SECIHTI</strong> dentro de la convocatoria de Divulgación Comunitaria de la Ciencia y las Humanidades 2025. Responsable técnico: <strong>Dr. Vicente Estrada González</strong>.',
       footNote: 'Sitio informativo. No solicita datos personales. Actualizado conforme avanza la etapa 1.',
+      linkSoon: ' (enlace del equipo cuando esté publicado)',
     },
     en: {
       brandTitle: 'Nutrition in AR',
       nav: [
         ['#que-es', 'Project'],
-        ['#participar', 'Take part'],
+        ['#participar', 'Take Part'],
         ['#centro', 'Mazahua Center'],
         ['#etapa', 'Stage 1'],
-        ['#galeria', 'Photos & videos'],
-        ['#futuro', 'Next stages'],
+        ['#galeria', 'Photos & Videos'],
+        ['#futuro', 'Next Stages'],
       ],
-      heroEyebrow: 'Community science · Villa Victoria, Mexico State',
-      heroH1: 'Virtual reality against diabetes',
-      heroLede: 'In Mexico, 18.3% of adults live with diabetes and 1 in 3 doesn’t know it yet. Our app helps plan better meals, drawing on ancestral knowledge backed by science.',
-      heroNote: 'Figures: ENSANUT 2022 (INSP). In 2024 diabetes was the second cause of death in Mexico —112,577 deaths, 17,155 in Mexico State (INEGI).',
-      ctaParticipate: 'How to participate',
+      heroEyebrow: 'Community Science · Villa Victoria, Mexico State',
+      heroH1: 'Virtual Reality Against Diabetes',
+      heroLede: 'In Mexico, 18.3% of adults live with diabetes, and 1 in 3 doesn’t know it yet. Our app helps with better meal planning, drawing on ancestral knowledge backed by science.',
+      heroNote: 'Figures: ENSANUT 2022 (INSP). In 2024, diabetes was the second cause of death in Mexico — 112,577 deaths; 17,155 in Mexico State (INEGI).',
+      ctaParticipate: 'How to Participate',
       ctaCenter: 'For the Mazahua Center',
       scrollHint: 'Scroll',
       factWhereLbl: 'Where',
       factWhere: 'Villa Victoria and communities linked to the regional Mazahua center',
       factProgramLbl: 'Funder',
       factProgram: 'SECIHTI · Community Outreach for Science & Humanities 2025 (Pp F003 / F027)',
-      factStageLbl: 'Current stage',
+      factStageLbl: 'Current Stage',
       factStage: 'Stage 1: Jul 2026 – Jun 2027',
-      asideLabel: 'Three modules in the app',
-      eyWhat: 'The project',
-      eyAud: 'Who this is for',
-      eyPart: 'Voluntary participation',
+      asideLabel: 'Three Modules in the App',
+      eyWhat: 'The Project',
+      eyAud: 'Who This Is For',
+      eyPart: 'Voluntary Participation',
       eyCenter: 'Community',
       eyStage: 'Timeline',
       eySci: 'Method',
       eyTeam: 'Team',
       eyMedia: 'Gallery',
-      eyFund: 'Next stages',
+      eyFund: 'Next Stages',
       eyLinks: 'Resources',
-      backTop: 'Back to top',
+      backTop: 'Back to Top',
       modules: [
-        { t: 'Everyday food', d: 'Corn, beans, vegetables and home habits with visual explanations.' },
-        { t: 'Glucose and energy', d: 'How food affects body energy, in plain language.' },
+        { t: 'Everyday Food', d: 'Corn, beans, vegetables and home habits with visual explanations.' },
+        { t: 'Glucose and Energy', d: 'How food affects body energy, in plain language.' },
         { t: 'Movement', d: 'Everyday physical activity as part of caring for health.' },
       ],
-      whatTitle: 'The project',
+      whatTitle: 'The Project',
       whatBody: `<p>In Mexico, diabetes is the <strong>second cause of death</strong>, behind only heart disease. The reasons are many: the shift from traditional foodways to ultra-processed products, sugary drinks displacing water and home-cooked meals, and a lack of clear information within the community’s reach.</p>
-<p>These habits are deeply anchored. Yet it is striking that with <strong>just a few targeted changes in diet</strong>, the likelihood of developing diabetes can be reduced. Making that knowledge arrive —and be used— is this project’s bet (ID <strong>DIVULGACION-2025-1352</strong>).</p>
+<p>These habits are deeply rooted. Yet it is striking that with <strong>just a few targeted changes in diet</strong>, the likelihood of developing diabetes can be reduced. Making that knowledge arrive — and be used — is this project’s bet (ID <strong>DIVULGACION-2025-1352</strong>).</p>
 <p>Through <strong>augmented reality</strong>, our app offers information based on the most up-to-date review of scientific studies on how food affects health. That information is curated and aimed at our specific population thanks to interviews carried out in the community, in person and online, and is communicated in a useful, didactic way so it can be put to the best use.</p>
-<p>Our team, with international experts in digital health —<strong>Dr. Jeffrey Vadala</strong> and <strong>Dr. Vicente Estrada González</strong>—, had already developed this technology and tested its effectiveness in a community in Philadelphia, US, to encourage vaccination in communities with less access to health services.</p>`,
-      audTitle: 'Information by audience',
+<p>Our team, with international experts in digital health — <strong>Dr. Jeffrey Vadala</strong> and <strong>Dr. Vicente Estrada González</strong> — had already developed this technology and tested its effectiveness in a community in Philadelphia, USA, to encourage vaccination in communities with less access to health services.</p>`,
+      audTitle: 'Information by Audience',
       audIntro: 'This page is public. It summarises the purpose of the project without participants’ personal data.',
       audiences: [
-        { accent: '#c4841a', title: 'General public', text: 'Learn what we do, why Villa Victoria, and how community decisions are respected.' },
-        { accent: '#a4502f', title: 'Potential participants', text: 'Interviews and app use are voluntary. You may skip any question or stop at any time.' },
+        { accent: '#c4841a', title: 'General Public', text: 'Learn what we do, why Villa Victoria, and how community decisions are respected.' },
+        { accent: '#a4502f', title: 'Potential Participants', text: 'Interviews and app use are voluntary. You may skip any question or stop at any time.' },
         { accent: '#6b7a3a', title: 'Mazahua Center', text: 'We ask for review of flyers and outreach. We return a useful summary and credit the community in materials.' },
-        { accent: '#1f1b16', title: 'SECIHTI & future funders', text: 'Stage 1 with verifiable outputs: community assessment, beta app, and materials to scale later stages.' },
+        { accent: '#1f1b16', title: 'SECIHTI & Future Funders', text: 'Stage 1 with verifiable outputs: community assessment, beta app, and materials to scale later stages.' },
       ],
-      partTitle: 'How to take part',
-      partAdultsTitle: 'Conversations with adults',
+      partTitle: 'How to Take Part',
+      partAdultsTitle: 'Conversations with Adults',
       partAdults: `<p>A team member interviews <strong>volunteers</strong> (45–60 min) about food, habits and community context. A Mazahua–Spanish interpreter is available if preferred.</p>
 <ul><li>Not a mandatory survey and not tied to social programmes.</li><li>Informed consent; questions may be skipped.</li><li>Names are optional on the registration form.</li></ul>`,
-      partKidsTitle: 'Children and the app',
+      partKidsTitle: 'Children and the App',
       partKids: `<p>In small groups, children aged <strong>8–14</strong> try the app on project phones, with a guardian’s permission.</p>
 <ul><li>Short AR modules with before/after questions.</li><li>No medical result is delivered.</li><li>A local space and the technical team support the session.</li></ul>`,
       partRights: '<strong>Your rights:</strong> participation is a choice; you may withdraw at any time; information is used only to improve this science outreach project.',
       centerTitle: 'Working with the Mazahua Center',
-      centerBody: `<p>Before field work we contact the center to <strong>present the project</strong> and ask them to review <strong>flyers or other materials</strong> inviting voluntary participation.</p>
+      centerBody: `<p>Before fieldwork we contact the center to <strong>present the project</strong> and ask them to review <strong>flyers or other materials</strong> inviting voluntary participation.</p>
 <p>The Center <strong>does not choose field dates</strong>; it may or may not allow outreach in its space. We agree to return a <strong>useful summary</strong> for the community and recognition in educational materials.</p>
 <p>The exact receiving body (Mazahua leadership, CEDIPIEM or another community institution) is confirmed on site, following the project protocol.</p>`,
       stageTitle: 'Stage 1 (2026–2027)',
@@ -242,33 +249,136 @@
         { when: 'Jan 2027', what: 'Pilot in Villa Victoria: interviews and app sessions.' },
         { when: 'Jun 2027', what: 'Formal end of stage 1; app polish after the pilot.' },
       ],
-      sciTitle: 'Science and ethics',
+      sciTitle: 'Science and Ethics',
       sciBody: `<p>Scripts draw on literature on nutrition, type 2 diabetes, Mazahua foodways and digital education. What is not confirmed in the community is kept generic or omitted.</p>
-<p>Principles: consent, reciprocity with the center, bilingual materials when possible, and formative (before/after) evaluation of modules without clinical aims.</p>`,
-      teamTitle: 'Project team',
+<p>Principles: consent, reciprocity with the center, multilingual materials when possible, and formative (before/after) evaluation of modules without clinical aims.</p>`,
+      teamTitle: 'Project Team',
       teamIntro: 'Core roles in stage 1. Local collaborators may be added.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Principal investigator', text: 'Scientific design, community interviews and overall coordination.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', role: 'App development', text: 'Technical build of the educational mobile application.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Local liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Principal Investigator', text: 'Scientific design, community interviews and overall coordination.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', role: 'App Development', text: 'Technical build of the educational mobile application.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Local Liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
       ],
-      mediaTitle: 'Photos and videos',
+      mediaTitle: 'Photos and Videos',
       mediaIntro: 'Reserved slots for project images and clips. Only material with consent and no personal data will be published.',
-      mediaEmpty: 'Coming soon',
+      mediaEmpty: 'Coming Soon',
       mediaPhoto: 'Photo',
       mediaVideo: 'Video',
-      fundTitle: 'For SECIHTI and future funding reviewers',
+      fundTitle: 'For SECIHTI and Future Funding Reviewers',
       fundBody: `<p><strong>ID:</strong> DIVULGACION-2025-1352. <strong>Call:</strong> Community Outreach for Science and Humanities 2025.</p>
 <p><strong>Stage 1 outputs:</strong> literature review and gap analysis; community assessment (goal of 15 interviews); beta app with three AR modules; documented pilot; materials prepared for open outreach.</p>
 <p>A possible <strong>stage 2</strong> would depend on official calls and reviews; this page does not announce budgets or commitments not notified by SECIHTI.</p>`,
-      linksTitle: 'Useful links',
+      linksTitle: 'Useful Links',
       linksIntro: 'Public resources related to the project.',
       links: [
         { href: 'https://www.conahcyt.mx/secihti', title: 'SECIHTI', text: 'Mexican Secretariat for Science, Humanities, Technology and Innovation.', external: true },
-        { href: PILOT_CALENDAR_URL, title: 'Pilot calendar (team)', text: 'Internal tool to coordinate dates among researchers and collaborators.', external: true, needsUrl: true },
+        { href: PILOT_CALENDAR_URL, title: 'Pilot Calendar (Team)', text: 'Internal tool to coordinate dates among researchers and collaborators.', external: true, needsUrl: true },
       ],
       footLegal: 'Funded by <strong>SECIHTI</strong> under the 2025 Community Outreach for Science and Humanities call. Principal investigator: <strong>Dr. Vicente Estrada González</strong>.',
       footNote: 'Informational site. Does not collect personal data. Updated as stage 1 progresses.',
+      linkSoon: ' (team link when published)',
+    },
+    de: {
+      brandTitle: 'Ernährung in AR',
+      nav: [
+        ['#que-es', 'Das Projekt'],
+        ['#participar', 'Mitmachen'],
+        ['#centro', 'Mazahua-Zentrum'],
+        ['#etapa', 'Stufe 1'],
+        ['#galeria', 'Fotos & Videos'],
+        ['#futuro', 'Weiterführung'],
+      ],
+      heroEyebrow: 'Community Science · Villa Victoria, Bundesstaat México',
+      heroH1: 'Virtuelle Realität gegen Diabetes',
+      heroLede: 'In Mexiko leben 18,3 % der Erwachsenen mit Diabetes, und jede dritte Person weiß es noch nicht. Unsere App unterstützt eine bessere Ernährungsplanung und greift dabei auf überliefertes Wissen der Vorfahren zurück, das wissenschaftlich gestützt ist.',
+      heroNote: 'Zahlen: ENSANUT 2022 (INSP). 2024 war Diabetes die zweithäufigste Todesursache in Mexiko — 112.577 Todesfälle; 17.155 im Bundesstaat México (INEGI).',
+      ctaParticipate: 'So können Sie mitmachen',
+      ctaCenter: 'Für das Mazahua-Zentrum',
+      scrollHint: 'Scrollen',
+      factWhereLbl: 'Wo',
+      factWhere: 'Villa Victoria und Gemeinden, die mit dem regionalen Mazahua-Zentrum verbunden sind',
+      factProgramLbl: 'Finanzierung',
+      factProgram: 'SECIHTI · Community Outreach für Wissenschaft und Geisteswissenschaften 2025 (Pp F003 / F027)',
+      factStageLbl: 'Aktuelle Stufe',
+      factStage: 'Stufe 1: Jul. 2026 – Jun. 2027',
+      asideLabel: 'Drei Module in der App',
+      eyWhat: 'Das Projekt',
+      eyAud: 'Für wen',
+      eyPart: 'Freiwillige Teilnahme',
+      eyCenter: 'Gemeinschaft',
+      eyStage: 'Zeitplan',
+      eySci: 'Methode',
+      eyTeam: 'Team',
+      eyMedia: 'Galerie',
+      eyFund: 'Weiterführung',
+      eyLinks: 'Ressourcen',
+      backTop: 'Nach oben',
+      modules: [
+        { t: 'Alltägliche Ernährung', d: 'Mais, Bohnen, Gemüse und Haushaltsgewohnheiten mit visuellen Erklärungen.' },
+        { t: 'Glukose und Energie', d: 'Wie Lebensmittel die Körperenergie beeinflussen — in verständlicher Sprache.' },
+        { t: 'Bewegung', d: 'Alltägliche körperliche Aktivität als Teil der Gesundheitsvorsorge.' },
+      ],
+      whatTitle: 'Das Projekt',
+      whatBody: `<p>In Mexiko ist Diabetes die <strong>zweithäufigste Todesursache</strong> — nur Herzkrankheiten liegen davor. Die Gründe sind vielfältig: der Übergang von traditioneller Ernährung zu hochverarbeiteten Produkten, zuckerhaltige Getränke, die Wasser und Hausmannskost verdrängen, sowie fehlende klare Informationen in Reichweite der Gemeinde.</p>
+<p>Diese Gewohnheiten sind fest verankert. Dennoch überrascht es, dass bereits <strong>gezielte Veränderungen in der Ernährung</strong> die Wahrscheinlichkeit, Diabetes zu entwickeln, senken können. Dass dieses Wissen ankommt — und genutzt wird — ist der Einsatz dieses Projekts (Kennung <strong>DIVULGACION-2025-1352</strong>).</p>
+<p>Über <strong>Augmented Reality</strong> bietet unsere App Informationen auf Grundlage der aktuellsten wissenschaftlichen Studien zum Einfluss von Lebensmitteln auf die Gesundheit. Diese Informationen werden kuratiert und auf unsere spezifische Bevölkerung zugeschnitten — dank Interviews in der Gemeinde, vor Ort und online — und so vermittelt, dass sie nützlich und didaktisch gut nutzbar sind.</p>
+<p>Unser Team mit internationalen Expertinnen und Experten für digitale Gesundheit — <strong>Dr. Jeffrey Vadala</strong> und <strong>Dr. Vicente Estrada González</strong> — hat diese Technologie bereits entwickelt und ihre Wirksamkeit in einer Gemeinde in Philadelphia, USA, erprobt, um Impfungen in Gemeinden mit schlechterem Zugang zu Gesundheitsdiensten zu fördern.</p>`,
+      audTitle: 'Informationen nach Zielgruppe',
+      audIntro: 'Diese Seite ist öffentlich. Sie fasst den Zweck des Projekts zusammen — ohne personenbezogene Daten von Teilnehmenden.',
+      audiences: [
+        { accent: '#c4841a', title: 'Allgemeine Öffentlichkeit', text: 'Erfahren Sie, was wir tun, warum in Villa Victoria, und wie Entscheidungen der Gemeinde geachtet werden.' },
+        { accent: '#a4502f', title: 'Interessierte Teilnehmende', text: 'Interviews und App-Nutzung sind freiwillig. Sie können jede Frage überspringen oder jederzeit aufhören.' },
+        { accent: '#6b7a3a', title: 'Mazahua-Zentrum', text: 'Wir bitten um Prüfung von Flugblättern und Öffentlichkeitsarbeit. Wir liefern eine nützliche Zusammenfassung zurück und würdigen die Gemeinde in den Materialien.' },
+        { accent: '#1f1b16', title: 'SECIHTI und künftige Förderer', text: 'Stufe 1 mit überprüfbaren Ergebnissen: Gemeindediagnose, Beta-App und Materialien für spätere Stufen.' },
+      ],
+      partTitle: 'So können Sie mitmachen',
+      partAdultsTitle: 'Gespräche mit Erwachsenen',
+      partAdults: `<p>Eine Person aus dem Team interviewt <strong>Freiwillige</strong> (45–60 Min.) zu Ernährung, Gewohnheiten und Gemeindekontext. Eine mazahua–spanische Dolmetschung ist auf Wunsch verfügbar.</p>
+<ul><li>Keine verpflichtende Umfrage und nicht an Sozialleistungen gebunden.</li><li>Informierte Einwilligung; Fragen können übersprungen werden.</li><li>Namen sind im Formular optional.</li></ul>`,
+      partKidsTitle: 'Kinder und die App',
+      partKids: `<p>In kleinen Gruppen erproben Kinder von <strong>8 bis 14 Jahren</strong> die App auf Projekttelefonen — mit Erlaubnis der Erziehungsberechtigten.</p>
+<ul><li>Kurze AR-Module mit Vorher-/Nachher-Fragen.</li><li>Kein medizinisches Ergebnis.</li><li>Ein lokaler Raum und das technische Team begleiten die Sitzung.</li></ul>`,
+      partRights: '<strong>Ihre Rechte:</strong> Die Teilnahme ist freiwillig; Sie können jederzeit zurücktreten; Informationen dienen nur der Verbesserung dieser wissenschaftlichen Vermittlung.',
+      centerTitle: 'Zusammenarbeit mit dem Mazahua-Zentrum',
+      centerBody: `<p>Vor der Feldarbeit kontaktieren wir das Zentrum, um das <strong>Projekt vorzustellen</strong> und um die Prüfung von <strong>Flugblättern oder anderen Materialien</strong> zu bitten, mit denen zur freiwilligen Teilnahme eingeladen wird.</p>
+<p>Das Zentrum <strong>wählt keine Feldtermine</strong>; es kann die Öffentlichkeitsarbeit in seinem Raum erlauben oder ablehnen. Wir vereinbaren, eine <strong>nützliche Zusammenfassung</strong> für die Gemeinde zurückzugeben und sie in den Bildungsmaterialien zu würdigen.</p>
+<p>Die genaue empfangende Stelle (mazahuaische indigene Leitung, CEDIPIEM oder eine andere Gemeindeinstitution) wird vor Ort bestätigt — gemäß dem Projektprotokoll.</p>`,
+      stageTitle: 'Stufe 1 (2026–2027)',
+      stageBody: `<p>Das Technische Sekretariat hat den Kalender dieser Stufe festgelegt. Der Pilot in Villa Victoria ist für den <strong>8. bis 26. Januar 2027</strong> geplant (genaue Tage in Absprache mit dem Team).</p>`,
+      timeline: [
+        { when: 'Jul. 2026', what: 'Beginn von Stufe 1; wissenschaftliche und gemeindebezogene Inhaltsarbeit.' },
+        { when: 'Nov.–Dez. 2026', what: 'Übergabe der App-Struktur, technischer Aufbau, Kontakt mit dem Mazahua-Zentrum.' },
+        { when: 'Jan. 2027', what: 'Pilot in Villa Victoria: Interviews und App-Sitzungen.' },
+        { when: 'Jun. 2027', what: 'Formelles Ende von Stufe 1; App-Nachbearbeitung nach dem Pilot.' },
+      ],
+      sciTitle: 'Wissenschaft und Ethik',
+      sciBody: `<p>Die Skripte stützen sich auf Literatur zu Ernährung, Typ-2-Diabetes, mazahuaischer Esskultur und digitaler Bildung. Was in der Gemeinde nicht bestätigt ist, wird allgemein gehalten oder weggelassen.</p>
+<p>Grundsätze: Einwilligung, Gegenseitigkeit mit dem Zentrum, mehrsprachige Materialien wo möglich sowie formative (Vorher-/Nachher-)Evaluation der Module ohne klinische Ziele.</p>`,
+      teamTitle: 'Projektteam',
+      teamIntro: 'Zentrale Rollen in Stufe 1. Die Liste kann um lokale Mitarbeitende erweitert werden.',
+      team: [
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Technische Leitung', text: 'Wissenschaftliches Design, Gemeindeinterviews und Gesamtkoordination.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', role: 'App-Entwicklung', text: 'Technischer Aufbau der Bildungs-App für mobile Geräte.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Lokale Vernetzung', text: 'Raum, Gemeindedynamik und Unterstützung in Villa Victoria.' },
+      ],
+      mediaTitle: 'Fotos und Videos',
+      mediaIntro: 'Reservierte Plätze für Bilder und audiovisuelle Materialien des Projekts. Veröffentlicht wird nur Material mit Einwilligung und ohne personenbezogene Daten.',
+      mediaEmpty: 'Demnächst',
+      mediaPhoto: 'Foto',
+      mediaVideo: 'Video',
+      fundTitle: 'Für SECIHTI und künftige Fördergutachterinnen und -gutachter',
+      fundBody: `<p><strong>Kennung:</strong> DIVULGACION-2025-1352. <strong>Ausschreibung:</strong> Community Outreach für Wissenschaft und Geisteswissenschaften 2025.</p>
+<p><strong>Ergebnisse von Stufe 1:</strong> Literaturübersicht und Lückenanalyse; Gemeindediagnose (Ziel: 15 Interviews); Beta-App mit drei AR-Modulen; dokumentierter Pilot; Materialien für offene Vermittlung.</p>
+<p>Eine mögliche <strong>Stufe 2</strong> hinge von offiziellen Ausschreibungen und Begutachtungen ab; diese Seite kündigt keine Budgets und keine von SECIHTI nicht mitgeteilten Verpflichtungen an.</p>`,
+      linksTitle: 'Nützliche Links',
+      linksIntro: 'Öffentliche Ressourcen zum Projekt.',
+      links: [
+        { href: 'https://www.conahcyt.mx/secihti', title: 'SECIHTI', text: 'Mexikanisches Sekretariat für Wissenschaft, Geisteswissenschaften, Technologie und Innovation.', external: true },
+        { href: PILOT_CALENDAR_URL, title: 'Pilotkalender (Team)', text: 'Internes Werkzeug zur Terminabstimmung zwischen Forschenden und Mitarbeitenden.', external: true, needsUrl: true },
+      ],
+      footLegal: 'Finanziert durch die <strong>SECIHTI</strong> im Rahmen der Ausschreibung Community Outreach für Wissenschaft und Geisteswissenschaften 2025. Technische Leitung: <strong>Dr. Vicente Estrada González</strong>.',
+      footNote: 'Informationsseite. Erhebt keine personenbezogenen Daten. Wird mit dem Fortschritt von Stufe 1 aktualisiert.',
+      linkSoon: ' (Team-Link, sobald veröffentlicht)',
     },
   };
 
@@ -282,12 +392,16 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   }[c]));
 
+  const LANGS = ['es', 'en', 'de'];
   const detectLang = () => {
     try {
       const saved = localStorage.getItem(STORE_LANG);
-      if (saved === 'es' || saved === 'en') return saved;
+      if (LANGS.includes(saved)) return saved;
     } catch (e) { /* ignore */ }
-    return (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'es';
+    const nav = (navigator.language || '').toLowerCase();
+    if (nav.startsWith('de')) return 'de';
+    if (nav.startsWith('en')) return 'en';
+    return 'es';
   };
 
   const renderText = () => {
@@ -306,9 +420,11 @@
     document.querySelectorAll('[data-lang]').forEach((b) => {
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
     });
-    document.title = lang === 'es'
-      ? 'Nutrición en realidad aumentada · Villa Victoria'
-      : 'Nutrition in augmented reality · Villa Victoria';
+    document.title = ({
+      es: 'Nutrición en realidad aumentada · Villa Victoria',
+      en: 'Nutrition in Augmented Reality · Villa Victoria',
+      de: 'Ernährung in Augmented Reality · Villa Victoria',
+    })[lang] || document.title;
   };
 
   const renderNav = () => {
@@ -349,7 +465,7 @@
     const host = $('#media-grid');
     if (!host) return;
     host.innerHTML = MEDIA_SLOTS.map((slot) => {
-      const cap = slot.caption[L()];
+      const cap = slot.caption[L()] || slot.caption.es || '';
       const typeLabel = slot.type === 'video' ? t('mediaVideo') : t('mediaPhoto');
       const hasSrc = Boolean(slot.src && String(slot.src).trim());
       let frame = '';
@@ -376,9 +492,7 @@
       const disabled = lnk.needsUrl && !lnk.href;
       const href = disabled ? '#' : lnk.href;
       const extra = lnk.external && !disabled ? ' target="_blank" rel="noopener noreferrer"' : '';
-      const note = disabled
-        ? (L() === 'es' ? ' (enlace del equipo cuando esté publicado)' : ' (team link when published)')
-        : '';
+      const note = disabled ? (t('linkSoon') || '') : '';
       return `<a class="link-card${disabled ? ' is-disabled' : ''}" href="${href}"${extra}>
         <h3>${lnk.title}${note}</h3>
         <p>${lnk.text}</p>
