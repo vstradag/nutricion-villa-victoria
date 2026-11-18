@@ -79,9 +79,8 @@
         ['#futuro', 'Seguimiento'],
       ],
       heroEyebrow: 'Ciencia comunitaria · Villa Victoria, Edomex',
-      heroStats: '<span class="stat-num">18,3 %</span> de los adultos en México vive con diabetes · <span class="stat-num">1 de cada 3</span> aún no lo sabe',
-      heroH1: 'Divulgando la ciencia de la alimentación con la comunidad',
-      heroLede: 'Muchas formas de responder empiezan en lo cotidiano: entender qué comemos. Este proyecto pone esa ciencia al alcance de la comunidad —una app educativa en realidad aumentada y conversaciones voluntarias con personas de la zona mazahua— con alimentos y prácticas locales. No es un servicio médico ni un diagnóstico.',
+      heroH1: 'Tecnología y alimentación, contra la diabetes',
+      heroLede: 'En México, el 18,3 % de los adultos vive con diabetes y 1 de cada 3 aún no lo sabe. Mejores estrategias de alimentación sí pueden prevenirla. ¿Cómo puede ayudar la tecnología? Con una app educativa en realidad aumentada y conversaciones voluntarias que explican, con alimentos y prácticas locales, cómo lo que comemos se relaciona con la salud. No es un servicio médico ni un diagnóstico.',
       heroNote: 'Cifras: ENSANUT 2022 (INSP). En 2024 la diabetes fue la segunda causa de muerte en México —112 577 defunciones, 17 155 en el Estado de México (INEGI).',
       ctaParticipate: 'Cómo participar',
       ctaCenter: 'Para el Centro Mazahua',
@@ -180,9 +179,8 @@
         ['#futuro', 'Next stages'],
       ],
       heroEyebrow: 'Community science · Villa Victoria, Mexico State',
-      heroStats: '<span class="stat-num">18.3%</span> of adults in Mexico live with diabetes · <span class="stat-num">1 in 3</span> doesn’t know it yet',
-      heroH1: 'Sharing food and health science with the community',
-      heroLede: 'Many ways of answering start with the everyday: understanding what we eat. This project brings that science within the community’s reach —an educational augmented-reality app and voluntary conversations with people in the Mazahua area— through local foods and practices. This is not medical care or a diagnosis.',
+      heroH1: 'Technology and food against diabetes',
+      heroLede: 'In Mexico, 18.3% of adults live with diabetes and 1 in 3 doesn’t know it yet. Better ways of eating really can prevent it. How can technology help? With an educational augmented-reality app and voluntary conversations that explain —through local foods and practices— how what we eat relates to health. This is not medical care or a diagnosis.',
       heroNote: 'Figures: ENSANUT 2022 (INSP). In 2024 diabetes was the second cause of death in Mexico —112,577 deaths, 17,155 in Mexico State (INEGI).',
       ctaParticipate: 'How to participate',
       ctaCenter: 'For the Mazahua Center',
@@ -414,7 +412,7 @@
     const words = splitWords(heading);
     if (!hasGsap || reduceMotion || immediate) {
       words.forEach((w) => { w.style.opacity = '1'; });
-      ['.hero__tag', '.hero__stats', '.hero__sub', '.hero__cta', '.hero__note', '.hero__scroll-indicator'].forEach((s) => {
+      ['.hero__tag', '.hero__sub', '.hero__cta', '.hero__note', '.hero__scroll-indicator'].forEach((s) => {
         const el = document.querySelector(s);
         if (el) el.style.opacity = '1';
       });
@@ -422,8 +420,7 @@
     }
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.fromTo('.hero__tag', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.25)
-      .fromTo('.hero__stats', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.35)
-      .fromTo(words, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.05 }, 0.55)
+      .fromTo(words, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.05 }, 0.45)
       .fromTo('.hero__sub', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 1.05)
       .fromTo('.hero__cta', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 1.25)
       .fromTo('.hero__note', { opacity: 0 }, { opacity: 1, duration: 0.8 }, 1.45)
