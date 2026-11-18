@@ -80,7 +80,7 @@
       ],
       heroEyebrow: 'Ciencia comunitaria · Villa Victoria, Edomex',
       heroH1: 'Realidad Aumentada y alimentación contra la diabetes',
-      heroLede: 'En México, el 18,3 % de los adultos vive con diabetes y 1 de cada 3 aún no lo sabe. Nuestra app ayuda a la mejor planeación alimentaria, aprovechando conocimientos ancestrales avalados científicamente. No es un servicio médico ni un diagnóstico.',
+      heroLede: 'En México, el 18,3 % de los adultos vive con diabetes y 1 de cada 3 aún no lo sabe. Nuestra app ayuda a la mejor planeación alimentaria, aprovechando conocimientos ancestrales avalados científicamente.',
       heroNote: 'Cifras: ENSANUT 2022 (INSP). En 2024 la diabetes fue la segunda causa de muerte en México —112 577 defunciones, 17 155 en el Estado de México (INEGI).',
       ctaParticipate: 'Cómo participar',
       ctaCenter: 'Para el Centro Mazahua',
@@ -108,10 +108,11 @@
         { t: 'Glucosa y energía', d: 'Cómo los alimentos afectan la energía del cuerpo, en lenguaje sencillo.' },
         { t: 'Movimiento', d: 'Actividad física cotidiana como parte del cuidado de la salud.' },
       ],
-      whatTitle: '¿De qué se trata?',
-      whatBody: `<p>El proyecto <strong>Nutrición en Realidad Aumentada: Divulgando la Ciencia para Prevenir Diabetes en Villa Victoria</strong> (clave <strong>DIVULGACION-2025-1352</strong>) adapta contenidos de nutrición y prevención a la cultura y la lengua de la comunidad.</p>
-<p>Combina <strong>revisión de evidencia</strong>, <strong>entrevistas voluntarias</strong> con adultos y <strong>pruebas de la app</strong> con niñas y niños de 8 a 14 años (con permiso de su tutor). La información sirve para mejorar materiales educativos <strong>de acceso abierto</strong>, sin fines comerciales.</p>
-<p>La app <strong>enseña</strong>; no dice si alguien tiene diabetes ni sustituye la atención de salud.</p>`,
+      whatTitle: 'El proyecto',
+      whatBody: `<p>En México, la diabetes es la <strong>segunda causa de muerte</strong>, solo por detrás de las enfermedades del corazón. Las razones son varias: el paso de la alimentación tradicional a los ultraprocesados, las bebidas azucaradas que desplazan al agua y a las comidas de casa, y la falta de información clara al alcance de la comunidad.</p>
+<p>Estos hábitos están fuertemente anclados. Sin embargo, resulta sorprendente que con <strong>tan solo cambios puntuales en la dieta</strong> se pueda reducir la probabilidad de desarrollar diabetes. Que ese conocimiento llegue, y se use, es la apuesta de este proyecto (clave <strong>DIVULGACION-2025-1352</strong>).</p>
+<p>Nuestra app, por medio de la <strong>Realidad Aumentada</strong>, ofrece información basada en la revisión más actualizada de estudios científicos sobre el impacto de los alimentos en la salud. Esa información es curada y dirigida a nuestra población específica gracias a las entrevistas realizadas en la comunidad, en persona y en línea, y se comunica de forma útil y didáctica para su mejor aprovechamiento.</p>
+<p>Nuestro equipo, con expertos internacionales en salud digital —el <strong>Dr. Jeffrey Vadala</strong> y el <strong>Dr. Vicente Estrada González</strong>—, ya había desarrollado esta tecnología y probado su eficacia en una comunidad de Filadelfia, EE. UU., para fomentar la vacunación en comunidades con menor acceso a los servicios de salud.</p>`,
       audTitle: 'Información según quién consulta',
       audIntro: 'Esta página es pública. Resume el propósito del proyecto sin datos personales de participantes.',
       audiences: [
@@ -180,7 +181,7 @@
       ],
       heroEyebrow: 'Community science · Villa Victoria, Mexico State',
       heroH1: 'Augmented reality and food against diabetes',
-      heroLede: 'In Mexico, 18.3% of adults live with diabetes and 1 in 3 doesn’t know it yet. Our app helps plan better meals, drawing on ancestral knowledge backed by science. This is not medical care or a diagnosis.',
+      heroLede: 'In Mexico, 18.3% of adults live with diabetes and 1 in 3 doesn’t know it yet. Our app helps plan better meals, drawing on ancestral knowledge backed by science.',
       heroNote: 'Figures: ENSANUT 2022 (INSP). In 2024 diabetes was the second cause of death in Mexico —112,577 deaths, 17,155 in Mexico State (INEGI).',
       ctaParticipate: 'How to participate',
       ctaCenter: 'For the Mazahua Center',
@@ -208,10 +209,11 @@
         { t: 'Glucose and energy', d: 'How food affects body energy, in plain language.' },
         { t: 'Movement', d: 'Everyday physical activity as part of caring for health.' },
       ],
-      whatTitle: 'What is this?',
-      whatBody: `<p>The project <strong>Nutrition in Augmented Reality: Divulging Science to Prevent Diabetes in Villa Victoria</strong> (ID <strong>DIVULGACION-2025-1352</strong>) adapts nutrition and prevention content to the community’s culture and language.</p>
-<p>It combines <strong>evidence review</strong>, <strong>voluntary interviews</strong> with adults, and <strong>app trials</strong> with children aged 8–14 (with a guardian’s permission). Information is used to improve <strong>open-access</strong> educational materials, with no commercial purpose.</p>
-<p>The app <strong>teaches</strong>; it does not tell users whether they have diabetes or replace health care.</p>`,
+      whatTitle: 'The project',
+      whatBody: `<p>In Mexico, diabetes is the <strong>second cause of death</strong>, behind only heart disease. The reasons are many: the shift from traditional foodways to ultra-processed products, sugary drinks displacing water and home-cooked meals, and a lack of clear information within the community’s reach.</p>
+<p>These habits are deeply anchored. Yet it is striking that with <strong>just a few targeted changes in diet</strong>, the likelihood of developing diabetes can be reduced. Making that knowledge arrive —and be used— is this project’s bet (ID <strong>DIVULGACION-2025-1352</strong>).</p>
+<p>Through <strong>augmented reality</strong>, our app offers information based on the most up-to-date review of scientific studies on how food affects health. That information is curated and aimed at our specific population thanks to interviews carried out in the community, in person and online, and is communicated in a useful, didactic way so it can be put to the best use.</p>
+<p>Our team, with international experts in digital health —<strong>Dr. Jeffrey Vadala</strong> and <strong>Dr. Vicente Estrada González</strong>—, had already developed this technology and tested its effectiveness in a community in Philadelphia, US, to encourage vaccination in communities with less access to health services.</p>`,
       audTitle: 'Information by audience',
       audIntro: 'This page is public. It summarises the purpose of the project without participants’ personal data.',
       audiences: [
