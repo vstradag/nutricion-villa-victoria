@@ -620,7 +620,7 @@
       });
     });
 
-    // Photo bands: the still drifts slowly, like the hero video pushing in.
+    // Photo / video bands: the background drifts slowly, like the hero video pushing in.
     gsap.utils.toArray('.section__bg').forEach((bg) => {
       gsap.fromTo(bg, { yPercent: -8 }, {
         yPercent: 8, ease: 'none',
@@ -638,6 +638,19 @@
         e.preventDefault();
         gsap.to(window, { scrollTo: { y: target, offsetY: id === '#top' ? 0 : 72 }, duration: 1.1, ease: 'power3.inOut' });
       });
+    });
+  }
+
+  // Section 01: muted looping B-roll — play only while visible (no voiceover).
+  function initBandVideos() {
+    document.querySelectorAll('.section__video').forEach((video) => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) video.play().catch(() => {});
+          else video.pause();
+        });
+      }, { threshold: 0.2 });
+      io.observe(video.closest('.section') || video);
     });
   }
 
@@ -740,8 +753,12 @@
   renderAll();
   initPreloader(() => {
     initHeroScroll();
+    initBandVideos();
     if (hasGsap && !reduceMotion) ScrollTrigger.refresh();
     syncHeadTheme();
   });
-  if (!hasGsap || reduceMotion) revealHero(true);
+  if (!hasGsap || reduceMotion) {
+    revealHero(true);
+    initBandVideos();
+  }
 })();
