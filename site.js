@@ -79,8 +79,10 @@
         ['#futuro', 'Seguimiento'],
       ],
       heroEyebrow: 'Ciencia comunitaria · Villa Victoria, Edomex',
+      heroStats: '<span class="stat-num">18,3 %</span> de los adultos en México vive con diabetes · <span class="stat-num">1 de cada 3</span> aún no lo sabe',
       heroH1: 'Divulgando la ciencia de la alimentación con la comunidad',
-      heroLede: 'Una app educativa en realidad aumentada y conversaciones voluntarias con personas de la zona mazahua ayudan a explicar —con alimentos y prácticas locales— cómo la nutrición cotidiana se relaciona con la salud. No es un servicio médico ni un diagnóstico.',
+      heroLede: 'Muchas formas de responder empiezan en lo cotidiano: entender qué comemos. Este proyecto pone esa ciencia al alcance de la comunidad —una app educativa en realidad aumentada y conversaciones voluntarias con personas de la zona mazahua— con alimentos y prácticas locales. No es un servicio médico ni un diagnóstico.',
+      heroNote: 'Cifras: ENSANUT 2022 (INSP). En 2024 la diabetes fue la segunda causa de muerte en México —112 577 defunciones, 17 155 en el Estado de México (INEGI).',
       ctaParticipate: 'Cómo participar',
       ctaCenter: 'Para el Centro Mazahua',
       scrollHint: 'Desliza',
@@ -178,8 +180,10 @@
         ['#futuro', 'Next stages'],
       ],
       heroEyebrow: 'Community science · Villa Victoria, Mexico State',
+      heroStats: '<span class="stat-num">18.3%</span> of adults in Mexico live with diabetes · <span class="stat-num">1 in 3</span> doesn’t know it yet',
       heroH1: 'Sharing food and health science with the community',
-      heroLede: 'An educational augmented-reality app and voluntary conversations with people in the Mazahua area help explain —using local foods and practices— how everyday nutrition relates to health. This is not medical care or a diagnosis.',
+      heroLede: 'Many ways of answering start with the everyday: understanding what we eat. This project brings that science within the community’s reach —an educational augmented-reality app and voluntary conversations with people in the Mazahua area— through local foods and practices. This is not medical care or a diagnosis.',
+      heroNote: 'Figures: ENSANUT 2022 (INSP). In 2024 diabetes was the second cause of death in Mexico —112,577 deaths, 17,155 in Mexico State (INEGI).',
       ctaParticipate: 'How to participate',
       ctaCenter: 'For the Mazahua Center',
       scrollHint: 'Scroll',
@@ -292,7 +296,8 @@
     document.querySelectorAll('[data-t]').forEach((el) => {
       const k = el.dataset.t;
       const v = T[L()][k];
-      if (typeof v === 'string') el.textContent = v;
+      if (typeof v !== 'string') return;
+      if (v.includes('<')) el.innerHTML = v; else el.textContent = v;
     });
     document.querySelectorAll('[data-t-html]').forEach((el) => {
       const k = el.dataset.tHtml;
@@ -409,7 +414,7 @@
     const words = splitWords(heading);
     if (!hasGsap || reduceMotion || immediate) {
       words.forEach((w) => { w.style.opacity = '1'; });
-      ['.hero__tag', '.hero__sub', '.hero__cta', '.hero__scroll-indicator'].forEach((s) => {
+      ['.hero__tag', '.hero__stats', '.hero__sub', '.hero__cta', '.hero__note', '.hero__scroll-indicator'].forEach((s) => {
         const el = document.querySelector(s);
         if (el) el.style.opacity = '1';
       });
@@ -417,9 +422,11 @@
     }
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.fromTo('.hero__tag', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.25)
-      .fromTo(words, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.05 }, 0.45)
-      .fromTo('.hero__sub', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 1.0)
-      .fromTo('.hero__cta', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 1.2)
+      .fromTo('.hero__stats', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 0.35)
+      .fromTo(words, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, stagger: 0.05 }, 0.55)
+      .fromTo('.hero__sub', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, 1.05)
+      .fromTo('.hero__cta', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, 1.25)
+      .fromTo('.hero__note', { opacity: 0 }, { opacity: 1, duration: 0.8 }, 1.45)
       .fromTo('.hero__scroll-indicator', { opacity: 0 }, { opacity: 1, duration: 1 }, 1.6);
   }
 
@@ -451,7 +458,7 @@
         scrollTrigger: { trigger: '.hero', start: 'top top', end: '60% bottom', scrub: true },
       });
 
-    gsap.to('.hero__content', {
+    gsap.fromTo('.hero__content', { y: 0, opacity: 1, scale: 1 }, {
       y: -120,
       opacity: 0,
       scale: 0.94,
@@ -607,12 +614,14 @@
     head.classList.toggle('is-over-hero', Boolean(probe && probe.closest(DARK_ZONES)));
   }
   let headTicking = false;
-  window.addEventListener('scroll', () => {
+  function onScroll() {
     if (headTicking) return;
     headTicking = true;
     requestAnimationFrame(() => { syncHeadTheme(); headTicking = false; });
-  }, { passive: true });
-  window.addEventListener('resize', syncHeadTheme);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { syncHeadTheme(); onScroll(); });
+  window.addEventListener('load', () => { syncHeadTheme(); onScroll(); });
   syncHeadTheme();
 
   renderAll();
