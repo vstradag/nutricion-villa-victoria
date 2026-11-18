@@ -78,11 +78,11 @@
       brandTitle: 'Nutrición en RA',
       nav: [
         ['#que-es', 'El proyecto'],
+        ['#equipo', 'Equipo'],
         ['#participar', 'Participar'],
         ['#centro', 'Centro Mazahua'],
         ['#etapa', 'Etapa 1'],
         ['#galeria', 'Fotos y videos'],
-        ['#futuro', 'Seguimiento'],
       ],
       heroEyebrow: 'Ciencia comunitaria · Villa Victoria, Edomex',
       heroH1: 'Realidad virtual contra la diabetes',
@@ -153,9 +153,9 @@
       teamTitle: 'Quién trabaja en el proyecto',
       teamIntro: 'Roles principales en la etapa 1. La lista puede ampliarse con colaboradores locales.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Responsable técnico', text: 'Diseño científico, entrevistas comunitarias y coordinación general.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', role: 'Desarrollo de la app', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Articulación local', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', photo: 'assets/team-vicente.jpg', role: 'Responsable técnico', text: 'Diseño científico, entrevistas comunitarias y coordinación general.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', role: 'Desarrollo de la app', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', role: 'Articulación local', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
       ],
       mediaTitle: 'Fotos y videos',
       mediaIntro: 'Espacios reservados para imágenes y material audiovisual del proyecto. Solo se publicará contenido con consentimiento y sin datos personales.',
@@ -180,11 +180,11 @@
       brandTitle: 'Nutrition in AR',
       nav: [
         ['#que-es', 'Project'],
+        ['#equipo', 'Team'],
         ['#participar', 'Take Part'],
         ['#centro', 'Mazahua Center'],
         ['#etapa', 'Stage 1'],
         ['#galeria', 'Photos & Videos'],
-        ['#futuro', 'Next Stages'],
       ],
       heroEyebrow: 'Community Science · Villa Victoria, Mexico State',
       heroH1: 'Virtual Reality Against Diabetes',
@@ -255,9 +255,9 @@
       teamTitle: 'Project Team',
       teamIntro: 'Core roles in stage 1. Local collaborators may be added.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Principal Investigator', text: 'Scientific design, community interviews and overall coordination.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', role: 'App Development', text: 'Technical build of the educational mobile application.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Local Liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', photo: 'assets/team-vicente.jpg', role: 'Principal Investigator', text: 'Scientific design, community interviews and overall coordination.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', role: 'App Development', text: 'Technical build of the educational mobile application.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', role: 'Local Liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
       ],
       mediaTitle: 'Photos and Videos',
       mediaIntro: 'Reserved slots for project images and clips. Only material with consent and no personal data will be published.',
@@ -282,11 +282,11 @@
       brandTitle: 'Ernährung in AR',
       nav: [
         ['#que-es', 'Das Projekt'],
+        ['#equipo', 'Team'],
         ['#participar', 'Mitmachen'],
         ['#centro', 'Mazahua-Zentrum'],
         ['#etapa', 'Stufe 1'],
         ['#galeria', 'Fotos & Videos'],
-        ['#futuro', 'Weiterführung'],
       ],
       heroEyebrow: 'Community Science · Villa Victoria, Bundesstaat México',
       heroH1: 'Virtuelle Realität gegen Diabetes',
@@ -357,9 +357,9 @@
       teamTitle: 'Projektteam',
       teamIntro: 'Zentrale Rollen in Stufe 1. Die Liste kann um lokale Mitarbeitende erweitert werden.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', role: 'Technische Leitung', text: 'Wissenschaftliches Design, Gemeindeinterviews und Gesamtkoordination.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', role: 'App-Entwicklung', text: 'Technischer Aufbau der Bildungs-App für mobile Geräte.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', role: 'Lokale Vernetzung', text: 'Raum, Gemeindedynamik und Unterstützung in Villa Victoria.' },
+        { name: 'Dr. Vicente Estrada González', initials: 'VE', photo: 'assets/team-vicente.jpg', role: 'Technische Leitung', text: 'Wissenschaftliches Design, Gemeindeinterviews und Gesamtkoordination.' },
+        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', role: 'App-Entwicklung', text: 'Technischer Aufbau der Bildungs-App für mobile Geräte.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', role: 'Lokale Vernetzung', text: 'Raum, Gemeindedynamik und Unterstützung in Villa Victoria.' },
       ],
       mediaTitle: 'Fotos und Videos',
       mediaIntro: 'Reservierte Plätze für Bilder und audiovisuelle Materialien des Projekts. Veröffentlicht wird nur Material mit Einwilligung und ohne personenbezogene Daten.',
@@ -452,13 +452,18 @@
   };
 
   const renderTeam = () => {
-    $('#team').innerHTML = T[L()].team.map((p) => `
-      <article>
-        <div class="avatar" aria-hidden="true">${esc(p.initials || '')}</div>
-        <h3>${p.name}</h3>
-        <p class="role">${p.role}</p>
-        <p>${p.text}</p>
-      </article>`).join('');
+    $('#team').innerHTML = T[L()].team.map((p) => {
+      const hasPhoto = Boolean(p.photo && String(p.photo).trim());
+      const media = hasPhoto
+        ? `<img class="avatar avatar--photo" src="${esc(p.photo)}" alt="${esc(p.name)}" width="720" height="720" loading="lazy">`
+        : `<div class="avatar" aria-hidden="true">${esc(p.initials || '')}</div>`;
+      return `<article class="team-card${hasPhoto ? ' has-photo' : ''}">
+        ${media}
+        <h3>${esc(p.name)}</h3>
+        <p class="role">${esc(p.role)}</p>
+        <p>${esc(p.text)}</p>
+      </article>`;
+    }).join('');
   };
 
   const renderMedia = () => {
