@@ -581,29 +581,26 @@ body.is-loading .site-head { transform: translateY(-110%); }
   color: var(--ink-soft);
 }
 
-.typewriter {
-  min-height: 12em;
+/* Section 01: reading focus — full text always visible; scroll brightens words */
+.prose--read > p:first-child {
+  font: 500 clamp(1.2rem, 2.2vw, 1.45rem)/1.45 var(--display);
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  margin-bottom: 1.15em;
 }
 
-.type-cursor {
-  display: inline-block;
-  width: 0.55ch;
-  height: 1.05em;
-  margin-left: 1px;
-  vertical-align: text-bottom;
-  background: var(--ochre);
-  animation: typeBlink 0.85s steps(1) infinite;
+.prose--read .rf-word {
+  opacity: 0.38;
+  will-change: opacity;
 }
 
-.typewriter.is-done .type-cursor { display: none; }
-
-@keyframes typeBlink {
-  0%, 45% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+.prose--read.is-static .rf-word {
+  opacity: 1;
+  will-change: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .type-cursor { display: none !important; animation: none; }
+  .prose--read .rf-word { opacity: 1 !important; }
 }
 
 .section--dark .prose { color: rgba(250, 246, 238, 0.82); }

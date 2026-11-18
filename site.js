@@ -428,100 +428,76 @@
     return 'es';
   };
 
-  /* ---------- typewriter for section 01 ("El proyecto") ---------- */
-  let typeTimer = null;
-  let typeStarted = false;
-  let typeLang = '';
+  /* ---------- section 01 reading focus (replaces typewriter) ----------
+     Full text is always in the DOM and readable. As you scroll through the
+     band, words brighten — the reader controls the pace (NN/g + editorial pattern).
+  */
+  let readFocusKill = null;
 
-  const stopTypewriter = () => {
-    if (typeTimer) { clearTimeout(typeTimer); typeTimer = null; }
-  };
-
-  const fillWhatBody = (html) => {
-    const el = $('#whatTypewriter');
-    if (!el) return;
-    el.classList.add('is-done');
-    el.innerHTML = html;
-  };
-
-  const runTypewriter = (html, force) => {
-    const el = $('#whatTypewriter');
-    if (!el) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    stopTypewriter();
-    if (reduce) {
-      fillWhatBody(html);
-      typeStarted = true;
-      typeLang = L();
-      return;
-    }
-    if (!force && typeStarted && typeLang === L() && el.classList.contains('is-done')) return;
-
-    typeStarted = true;
-    typeLang = L();
-    el.classList.remove('is-done');
-
-    // Keep tags intact; type only visible characters (máquina de escribir).
-    const tokens = [];
-    const re = /(<[^>]+>)|([^<]+)/g;
-    let m;
-    while ((m = re.exec(html))) {
-      if (m[1]) tokens.push({ kind: 'tag', v: m[1] });
-      else {
-        for (const ch of [...m[2]]) tokens.push({ kind: 'char', v: ch });
-      }
-    }
-
-    let i = 0;
-    let out = '';
-    const cursor = '<span class="type-cursor" aria-hidden="true"></span>';
-    el.innerHTML = cursor;
-
-    const step = () => {
-      if (i >= tokens.length) {
-        el.classList.add('is-done');
-        el.innerHTML = html;
-        typeTimer = null;
-        return;
-      }
-      const tok = tokens[i++];
-      if (tok.kind === 'tag') {
-        out += tok.v;
-        // Flush tags immediately (open/close) without waiting.
-        while (i < tokens.length && tokens[i].kind === 'tag') out += tokens[i++].v;
-      } else {
-        out += tok.v;
-      }
-      el.innerHTML = out + cursor;
-
-      const ch = tok.kind === 'char' ? tok.v : '';
-      let delay = 22;
-      if (ch === ' ') delay = 10;
-      else if (ch === '.' || ch === '!' || ch === '?') delay = 220;
-      else if (ch === ',' || ch === ';' || ch === ':') delay = 90;
-      else if (ch === '\n') delay = 40;
-      typeTimer = setTimeout(step, delay);
-    };
-    typeTimer = setTimeout(step, 280);
-  };
-
-  const initWhatTypewriter = () => {
-    const section = $('#que-es');
-    const html = () => T[L()].whatBody;
-    if (!section) {
-      fillWhatBody(html());
-      return;
-    }
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      fillWhatBody(html());
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) runTypewriter(html(), false);
+  const wrapReadWords = (root) => {
+    const texts = [];
+    const walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (walk.nextNode()) texts.push(walk.currentNode);
+    texts.forEach((node) => {
+      const raw = node.textContent;
+      if (!raw || !raw.trim()) return;
+      const frag = document.createDocumentFragment();
+      raw.split(/(\s+)/).forEach((part) => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+          return;
+        }
+        const span = document.createElement('span');
+        span.className = 'rf-word';
+        span.textContent = part;
+        frag.appendChild(span);
       });
-    }, { threshold: 0.28 });
-    io.observe(section);
+      node.parentNode.replaceChild(frag, node);
+    });
+  };
+
+  const killReadFocus = () => {
+    if (readFocusKill) { readFocusKill(); readFocusKill = null; }
+  };
+
+  const mountReadFocus = () => {
+    const el = $('#whatProse');
+    if (!el) return;
+    killReadFocus();
+    el.innerHTML = T[L()].whatBody;
+    el.classList.remove('is-static');
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') {
+      el.classList.add('is-static');
+      return;
+    }
+
+    wrapReadWords(el);
+    const words = el.querySelectorAll('.rf-word');
+    if (!words.length) {
+      el.classList.add('is-static');
+      return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.set(words, { opacity: 0.38 });
+    const tween = gsap.to(words, {
+      opacity: 1,
+      ease: 'none',
+      stagger: 0.06,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 78%',
+        end: 'bottom 42%',
+        scrub: 0.55,
+      },
+    });
+    readFocusKill = () => {
+      if (tween.scrollTrigger) tween.scrollTrigger.kill();
+      tween.kill();
+    };
   };
 
   const renderText = () => {
@@ -534,7 +510,7 @@
       if (v.includes('<')) el.innerHTML = v; else el.textContent = v;
     });
     document.querySelectorAll('[data-t-html]').forEach((el) => {
-      if (el.id === 'whatTypewriter') return; // driven by the typewriter
+      if (el.id === 'whatProse') return; // mounted by reading-focus
       const k = el.dataset.tHtml;
       el.innerHTML = T[L()][k];
     });
@@ -860,8 +836,8 @@
       renderAll();
       // The heading was re-rendered as plain text; show it without replaying the intro.
       revealHero(true);
-      // Replay section 01 in the new language if it is (or was) in view.
-      runTypewriter(T[L()].whatBody, true);
+      mountReadFocus();
+      if (hasGsap && !reduceMotion) ScrollTrigger.refresh();
     });
   });
 
@@ -888,13 +864,13 @@
   initPreloader(() => {
     initHeroScroll();
     initBandVideos();
-    initWhatTypewriter();
+    mountReadFocus();
     if (hasGsap && !reduceMotion) ScrollTrigger.refresh();
     syncHeadTheme();
   });
   if (!hasGsap || reduceMotion) {
     revealHero(true);
     initBandVideos();
-    initWhatTypewriter();
+    mountReadFocus();
   }
 })();
