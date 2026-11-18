@@ -153,9 +153,17 @@
       teamTitle: 'Quién trabaja en el proyecto',
       teamIntro: 'Roles principales en la etapa 1. La lista puede ampliarse con colaboradores locales.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', photo: 'assets/team-vicente.jpg', role: 'Responsable técnico', text: 'Diseño científico, entrevistas comunitarias y coordinación general.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', role: 'Desarrollo de la app', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', role: 'Articulación local', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
+        {
+          name: 'Dr. Vicente Estrada González',
+          initials: 'VE',
+          photo: 'assets/team-vicente.jpg',
+          url: 'https://vicenteestrada.com',
+          role: 'Responsable técnico · Investigador postdoctoral (LMU Múnich)',
+          credentials: 'PhD en Psicología (UNSW Sydney) · B.Sc. Psicología (UNAM) · Ex-postdoc, Penn Center for Neuroaesthetics (UPenn)',
+          text: 'Diseño científico, entrevistas comunitarias y coordinación general del proyecto SECIHTI. Investiga estética empírica, visión y salud digital; lidera el desarrollo de la app de realidad aumentada.',
+        },
+        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', url: '', role: 'Desarrollo de la app', credentials: '', text: 'Construcción técnica de la aplicación educativa en dispositivos móviles.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', url: '', role: 'Articulación local', credentials: '', text: 'Espacio, dinámica comunitaria y apoyo en Villa Victoria.' },
       ],
       mediaTitle: 'Fotos y videos',
       mediaIntro: 'Espacios reservados para imágenes y material audiovisual del proyecto. Solo se publicará contenido con consentimiento y sin datos personales.',
@@ -255,9 +263,17 @@
       teamTitle: 'Project Team',
       teamIntro: 'Core roles in stage 1. Local collaborators may be added.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', photo: 'assets/team-vicente.jpg', role: 'Principal Investigator', text: 'Scientific design, community interviews and overall coordination.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', role: 'App Development', text: 'Technical build of the educational mobile application.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', role: 'Local Liaison', text: 'Space, community dynamics and support in Villa Victoria.' },
+        {
+          name: 'Dr. Vicente Estrada González',
+          initials: 'VE',
+          photo: 'assets/team-vicente.jpg',
+          url: 'https://vicenteestrada.com',
+          role: 'Principal Investigator · Postdoctoral Researcher (LMU Munich)',
+          credentials: 'PhD in Psychology (UNSW Sydney) · B.Sc. Psychology (UNAM) · Former postdoc, Penn Center for Neuroaesthetics (UPenn)',
+          text: 'Scientific design, community interviews and overall coordination of the SECIHTI project. Researches empirical aesthetics, vision and digital health; leads development of the augmented-reality app.',
+        },
+        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', url: '', role: 'App Development', credentials: '', text: 'Technical build of the educational mobile application.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', url: '', role: 'Local Liaison', credentials: '', text: 'Space, community dynamics and support in Villa Victoria.' },
       ],
       mediaTitle: 'Photos and Videos',
       mediaIntro: 'Reserved slots for project images and clips. Only material with consent and no personal data will be published.',
@@ -357,9 +373,17 @@
       teamTitle: 'Projektteam',
       teamIntro: 'Zentrale Rollen in Stufe 1. Die Liste kann um lokale Mitarbeitende erweitert werden.',
       team: [
-        { name: 'Dr. Vicente Estrada González', initials: 'VE', photo: 'assets/team-vicente.jpg', role: 'Technische Leitung', text: 'Wissenschaftliches Design, Gemeindeinterviews und Gesamtkoordination.' },
-        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', role: 'App-Entwicklung', text: 'Technischer Aufbau der Bildungs-App für mobile Geräte.' },
-        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', role: 'Lokale Vernetzung', text: 'Raum, Gemeindedynamik und Unterstützung in Villa Victoria.' },
+        {
+          name: 'Dr. Vicente Estrada González',
+          initials: 'VE',
+          photo: 'assets/team-vicente.jpg',
+          url: 'https://vicenteestrada.com',
+          role: 'Technische Leitung · Postdoktorand (LMU München)',
+          credentials: 'PhD Psychologie (UNSW Sydney) · B.Sc. Psychologie (UNAM) · Ehem. Postdoc, Penn Center for Neuroaesthetics (UPenn)',
+          text: 'Wissenschaftliches Design, Gemeindeinterviews und Gesamtkoordination des SECIHTI-Projekts. Forscht zu empirischer Ästhetik, Sehen und digitaler Gesundheit; leitet die Entwicklung der Augmented-Reality-App.',
+        },
+        { name: 'Jeffrey Vadala', initials: 'JV', photo: '', url: '', role: 'App-Entwicklung', credentials: '', text: 'Technischer Aufbau der Bildungs-App für mobile Geräte.' },
+        { name: 'Inhala / Mallinalli', initials: 'M', photo: '', url: '', role: 'Lokale Vernetzung', credentials: '', text: 'Raum, Gemeindedynamik und Unterstützung in Villa Victoria.' },
       ],
       mediaTitle: 'Fotos und Videos',
       mediaIntro: 'Reservierte Plätze für Bilder und audiovisuelle Materialien des Projekts. Veröffentlicht wird nur Material mit Einwilligung und ohne personenbezogene Daten.',
@@ -455,12 +479,18 @@
     $('#team').innerHTML = T[L()].team.map((p) => {
       const hasPhoto = Boolean(p.photo && String(p.photo).trim());
       const media = hasPhoto
-        ? `<img class="avatar avatar--photo" src="${esc(p.photo)}" alt="${esc(p.name)}" width="720" height="720" loading="lazy">`
+        ? `<img class="avatar avatar--photo" src="${esc(p.photo)}" alt="${esc(p.name)}" width="800" height="800" loading="lazy">`
         : `<div class="avatar" aria-hidden="true">${esc(p.initials || '')}</div>`;
+      const link = p.url
+        ? `<a class="team-link" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.url.replace(/^https?:\/\//, ''))}</a>`
+        : '';
+      const creds = p.credentials ? `<p class="team-creds">${esc(p.credentials)}</p>` : '';
       return `<article class="team-card${hasPhoto ? ' has-photo' : ''}">
         ${media}
         <h3>${esc(p.name)}</h3>
+        ${link}
         <p class="role">${esc(p.role)}</p>
+        ${creds}
         <p>${esc(p.text)}</p>
       </article>`;
     }).join('');
