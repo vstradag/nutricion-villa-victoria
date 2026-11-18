@@ -138,7 +138,6 @@
         { when: 'Nov–Dic 2026', what: 'Entrega de estructura de la app, montaje técnico y contacto con el Centro Mazahua.' },
         { when: 'Ene 2027', what: 'Piloto en Villa Victoria: entrevistas y sesiones con la app.' },
         { when: 'Jun 2027', what: 'Término formal de la etapa 1; pulido de la app con lo aprendido en el piloto.' },
-        { when: '1 Jul 2027', what: 'Límite de informes técnicos y financieros de la etapa 1.' },
       ],
       sciTitle: 'Base científica y ética',
       sciBody: `<p>Los guiones parten de literatura sobre nutrición, diabetes tipo 2, alimentación mazahua y educación digital. Lo que no se confirme en comunidad se presenta de forma genérica o se omite.</p>
@@ -238,7 +237,6 @@
         { when: 'Nov–Dec 2026', what: 'App structure handoff, technical build, contact with the Mazahua Center.' },
         { when: 'Jan 2027', what: 'Pilot in Villa Victoria: interviews and app sessions.' },
         { when: 'Jun 2027', what: 'Formal end of stage 1; app polish after the pilot.' },
-        { when: '1 Jul 2027', what: 'Deadline for stage 1 technical and financial reports.' },
       ],
       sciTitle: 'Science and ethics',
       sciBody: `<p>Scripts draw on literature on nutrition, type 2 diabetes, Mazahua foodways and digital education. What is not confirmed in the community is kept generic or omitted.</p>
