@@ -428,6 +428,102 @@
     return 'es';
   };
 
+  /* ---------- typewriter for section 01 ("El proyecto") ---------- */
+  let typeTimer = null;
+  let typeStarted = false;
+  let typeLang = '';
+
+  const stopTypewriter = () => {
+    if (typeTimer) { clearTimeout(typeTimer); typeTimer = null; }
+  };
+
+  const fillWhatBody = (html) => {
+    const el = $('#whatTypewriter');
+    if (!el) return;
+    el.classList.add('is-done');
+    el.innerHTML = html;
+  };
+
+  const runTypewriter = (html, force) => {
+    const el = $('#whatTypewriter');
+    if (!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    stopTypewriter();
+    if (reduce) {
+      fillWhatBody(html);
+      typeStarted = true;
+      typeLang = L();
+      return;
+    }
+    if (!force && typeStarted && typeLang === L() && el.classList.contains('is-done')) return;
+
+    typeStarted = true;
+    typeLang = L();
+    el.classList.remove('is-done');
+
+    // Keep tags intact; type only visible characters (máquina de escribir).
+    const tokens = [];
+    const re = /(<[^>]+>)|([^<]+)/g;
+    let m;
+    while ((m = re.exec(html))) {
+      if (m[1]) tokens.push({ kind: 'tag', v: m[1] });
+      else {
+        for (const ch of [...m[2]]) tokens.push({ kind: 'char', v: ch });
+      }
+    }
+
+    let i = 0;
+    let out = '';
+    const cursor = '<span class="type-cursor" aria-hidden="true"></span>';
+    el.innerHTML = cursor;
+
+    const step = () => {
+      if (i >= tokens.length) {
+        el.classList.add('is-done');
+        el.innerHTML = html;
+        typeTimer = null;
+        return;
+      }
+      const tok = tokens[i++];
+      if (tok.kind === 'tag') {
+        out += tok.v;
+        // Flush tags immediately (open/close) without waiting.
+        while (i < tokens.length && tokens[i].kind === 'tag') out += tokens[i++].v;
+      } else {
+        out += tok.v;
+      }
+      el.innerHTML = out + cursor;
+
+      const ch = tok.kind === 'char' ? tok.v : '';
+      let delay = 22;
+      if (ch === ' ') delay = 10;
+      else if (ch === '.' || ch === '!' || ch === '?') delay = 220;
+      else if (ch === ',' || ch === ';' || ch === ':') delay = 90;
+      else if (ch === '\n') delay = 40;
+      typeTimer = setTimeout(step, delay);
+    };
+    typeTimer = setTimeout(step, 280);
+  };
+
+  const initWhatTypewriter = () => {
+    const section = $('#que-es');
+    const html = () => T[L()].whatBody;
+    if (!section) {
+      fillWhatBody(html());
+      return;
+    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      fillWhatBody(html());
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) runTypewriter(html(), false);
+      });
+    }, { threshold: 0.28 });
+    io.observe(section);
+  };
+
   const renderText = () => {
     lang = detectLang();
     document.documentElement.lang = lang;
@@ -438,6 +534,7 @@
       if (v.includes('<')) el.innerHTML = v; else el.textContent = v;
     });
     document.querySelectorAll('[data-t-html]').forEach((el) => {
+      if (el.id === 'whatTypewriter') return; // driven by the typewriter
       const k = el.dataset.tHtml;
       el.innerHTML = T[L()][k];
     });
@@ -763,6 +860,8 @@
       renderAll();
       // The heading was re-rendered as plain text; show it without replaying the intro.
       revealHero(true);
+      // Replay section 01 in the new language if it is (or was) in view.
+      runTypewriter(T[L()].whatBody, true);
     });
   });
 
@@ -789,11 +888,13 @@
   initPreloader(() => {
     initHeroScroll();
     initBandVideos();
+    initWhatTypewriter();
     if (hasGsap && !reduceMotion) ScrollTrigger.refresh();
     syncHeadTheme();
   });
   if (!hasGsap || reduceMotion) {
     revealHero(true);
     initBandVideos();
+    initWhatTypewriter();
   }
 })();
