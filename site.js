@@ -465,15 +465,7 @@
       scrollTrigger: { trigger: '.hero', start: '2% top', end: '10% top', scrub: true },
     });
 
-    // Header: transparent over the hero, solid afterwards.
-    const head = $('.site-head');
-    ScrollTrigger.create({
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom 80px',
-      onLeave: () => head.classList.remove('is-over-hero'),
-      onEnterBack: () => head.classList.add('is-over-hero'),
-    });
+    // Header theme follows whatever band is directly beneath it (see syncHeadTheme below).
 
     // Sections ease in as they arrive.
     gsap.utils.toArray('.reveal-up').forEach((el, i) => {
@@ -606,10 +598,28 @@
     });
   });
 
+  /* ---------- header theme: light text over dark bands, ink over light ones ---------- */
+  const head = $('.site-head');
+  const DARK_ZONES = '.hero, .section--dark, .site-foot';
+  function syncHeadTheme() {
+    if (!head) return;
+    const probe = document.elementFromPoint(24, head.offsetHeight + 8);
+    head.classList.toggle('is-over-hero', Boolean(probe && probe.closest(DARK_ZONES)));
+  }
+  let headTicking = false;
+  window.addEventListener('scroll', () => {
+    if (headTicking) return;
+    headTicking = true;
+    requestAnimationFrame(() => { syncHeadTheme(); headTicking = false; });
+  }, { passive: true });
+  window.addEventListener('resize', syncHeadTheme);
+  syncHeadTheme();
+
   renderAll();
   initPreloader(() => {
     initHeroScroll();
     if (hasGsap && !reduceMotion) ScrollTrigger.refresh();
+    syncHeadTheme();
   });
   if (!hasGsap || reduceMotion) revealHero(true);
 })();
